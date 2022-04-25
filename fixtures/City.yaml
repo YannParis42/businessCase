@@ -1,0 +1,6 @@
+App\Entity\City:
+
+# pour générer plusieurs city, on fait une boucle, le num est l'id
+  city{0..150}:
+    name: '<city()>'
+    cp: '<numberBetween(1400,98799)>' 

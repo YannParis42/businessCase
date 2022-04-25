@@ -1,0 +1,6 @@
+App\Entity\Brand:
+
+# pour générer plusieurs brand, on fait une boucle, le num est l'id
+  brand{0..150}:
+    label: '<word()>'
+    imagePath: '<word()>.jpeg' 

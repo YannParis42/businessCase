@@ -1,0 +1,10 @@
+App\Entity\Review:
+
+# pour générer plusieurs user, on fait une boucle, le num est l'id
+  review{0..50}:
+    note: '<numberBetween(1,5)> '
+    createdAt: '<dateTimeBetween("-100 days", "now")>'
+    content: '<sentence(2)>'
+    # relation avec d'autres tables
+    product: '@product*'
+    user: '@user*'

@@ -1,0 +1,23 @@
+App\Entity\User:
+
+# pour générer plusieurs user, on fait une boucle, le num est l'id
+  user0:
+    email: 'tortuga4281@yahoo.fr'
+    roles: ['ROLE_ADMIN']
+    password: "\\$2y\\$13\\$zgsJ7bwPFXDPkXf/BtDrN.hEKFUZ9JFc/WXexYU7nKSnnPijo35E6"
+    firstName: 'Yann'
+    lastName: 'PARIS'
+    birthDate: '<dateTimeBetween("-1000 days", "now")>'
+    gender: 'Homme'
+    adresses: '<numberBetween(1,3)>x @adress*'
+ 
+  user{1..200}:
+    email (unique): '<email()> '
+    roles: ['ROLE_USER'] 
+    password: "\\$2y\\$13\\$zgsJ7bwPFXDPkXf/BtDrN.hEKFUZ9JFc/WXexYU7nKSnnPijo35E6"
+    firstName: '<word()>'
+    lastName: '<word()>'
+    birthDate: '<dateTimeBetween("-1000 days", "now")>'
+    gender: '<word()>'
+    # relation avec d'autres tables
+    adresses: '<numberBetween(1,3)>x @adress*'

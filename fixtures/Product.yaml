@@ -1,0 +1,12 @@
+App\Entity\Product:
+
+# pour générer plusieurs city, on fait une boucle, le num est l'id
+  product{0..150}:
+    label: '<word()>'
+    description: '<sentence(2)>' 
+    price: '<numberBetween(10,100)>'
+    stock: '<numberBetween(0,100)>'
+    isActif: '<numberBetween(0,1)>'
+# relation avec d'autres tables
+    brand: '@brand*'
+    categories: '<numberBetween(1,3)>x @category*'

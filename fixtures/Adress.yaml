@@ -1,0 +1,8 @@
+App\Entity\Adress:
+
+# pour générer plusieurs city, on fait une boucle, le num est l'id
+  adress{0..150}:
+    streetNumber: '<numberBetween(1,500)>'
+    streetName: '<word()>' 
+    # relation avec d'autres tables
+    city: '@city*'

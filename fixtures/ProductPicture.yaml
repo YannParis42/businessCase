@@ -1,0 +1,9 @@
+App\Entity\ProductPicture:
+
+# pour générer plusieurs city, on fait une boucle, le num est l'id
+  prodductPicture{0..550}:
+    path: '<word()>.jpeg'
+    libele: '<word()>' 
+    # relation avec d'autres tables
+    product: '@product*'
+

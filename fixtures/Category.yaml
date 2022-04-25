@@ -1,0 +1,70 @@
+App\Entity\Category:
+
+  category0:
+    label: 'Chien'
+
+  category1:
+    label: 'Chat' 
+
+  category2:
+    label: 'Oiseau'
+
+  category3:
+    label: 'Nourritures pour Chiens'
+    categoryParent: '@category0'
+
+  category4:
+    label: 'Nourritures pour Chats'
+    categoryParent: '@category1'
+
+  category5:
+    label: 'Nourritures pour Oiseaux'
+    categoryParent: '@category2'
+
+  category6:
+    label: 'Couchages pour Chiens'
+    categoryParent: '@category0'
+
+  category7:
+    label: 'Couchages pour Chats'
+    categoryParent: '@category1'
+
+  category8:
+    label: 'Jouets pour Chiens'
+    categoryParent: '@category0'
+
+  category9:
+    label: 'Jouets pour Chats'
+    categoryParent: '@category1'
+
+  category10:
+    label: 'Jouets pour Oiseaus'
+    categoryParent: '@category2'
+
+  category11:
+    label: 'Gamelles pour Chiens'
+    categoryParent: '@category0'
+
+  category12:
+    label: 'Gamelles pour Chats'
+    categoryParent: '@category1'
+
+  category13:
+    label: 'Transports pour Chiens'
+    categoryParent: '@category0'    
+
+  category14:
+    label: 'Couchage pour Chats'
+    categoryParent: '@category1'
+
+  category15:
+    label: 'Volières'
+    categoryParent: '@category2'
+
+  category16:
+    label: 'Croquettes pour Chiens'
+    categoryParent: '@category3'
+
+  category17:
+    label: 'Friandises pour Chiens'
+    categoryParent: '@category3'
