@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\CityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -10,13 +12,20 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
+
 #[ORM\Entity(repositoryClass: CityRepository::class)]
-#[ApiResource()]
+#[ApiResource(
+    normalizationContext:['groups'=>['citySerialization']],
+    collectionOperations:['get','post'],
+    itemOperations:['get']
+)]
+#[ApiFilter(SearchFilter::class, properties:['id'=>'exact', 'name'=>'partial', 'cp'=>'exact'] )]
 class City
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(['citySerialization'])]
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -31,6 +40,7 @@ class City
         type:'string',
         message:'Le nom de ville doit être une chaine de caractère'
     )]
+    #[Groups(['citySerialization'])]
     private $name;
 
     #[ORM\Column(type: 'integer')]
@@ -42,9 +52,11 @@ class City
         type:'integer',
         message:'Le code postal doit être un nombre'
     )]
+    #[Groups(['citySerialization'])]
     private $cp;
 
     #[ORM\OneToMany(mappedBy: 'city', targetEntity: Adress::class)]
+    #[Groups(['citySerialization'])]
     private $adresses;
 
     public function __construct()

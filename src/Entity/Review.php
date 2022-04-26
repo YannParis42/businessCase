@@ -9,12 +9,17 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ReviewRepository::class)]
-#[ApiResource()]
+#[ApiResource(
+    normalizationContext:['groups'=>'reviewSerializtation'],
+    collectionOperations:['get','post'],
+    itemOperations:['get']
+)]
 class Review
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(['productSerialization','reviewSerializtation','userSerialization'])]
     private $id;
 
     #[ORM\Column(type: 'integer')]
@@ -27,6 +32,7 @@ class Review
         message:'La note doit être un nombre'
     )
     ]
+    #[Groups(['productSerialization','reviewSerializtation','userSerialization'])]
     private $note;
 
     #[ORM\Column(type: 'datetime')]
@@ -36,18 +42,22 @@ class Review
         message: 'La date n\'est pas au bon format'
     ),
     ]
+    #[Groups(['productSerialization','reviewSerializtation','userSerialization'])]
     private $createdAt;
 
     #[ORM\Column(type: 'text', nullable: true)]
     #[Assert\NotBlank(allowNull:TRUE)]
+    #[Groups(['productSerialization','reviewSerializtation','userSerialization'])]
     private $content;
 
     #[ORM\ManyToOne(targetEntity: Product::class, inversedBy: 'reviews')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['reviewSerializtation'])]
     private $product;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'reviews')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['reviewSerializtation'])]
     private $user;
 
     public function getId(): ?int

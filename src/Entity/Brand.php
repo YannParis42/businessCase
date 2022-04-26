@@ -11,12 +11,17 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: BrandRepository::class)]
-#[ApiResource()]
+#[ApiResource(
+    normalizationContext:['groups'=>'brandSerialization'],
+    collectionOperations:['get','post'],
+    itemOperations:['get']
+)]
 class Brand
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(['productSerialization','brandSerialization'])]
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -30,6 +35,7 @@ class Brand
         type:'string',
         message:'Le nom de marque doit être une chaine de caractère'
     )]
+    #[Groups(['productSerialization','brandSerialization'])]
     private $label;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -38,9 +44,11 @@ class Brand
         type:'string',
         message:'On attend une chaine de caractère'
     )]
+    #[Groups(['productSerialization','brandSerialization'])]
     private $imagePath;
 
     #[ORM\OneToMany(mappedBy: 'brand', targetEntity: Product::class)]
+    #[Groups(['brandSerialization'])]
     private $products;
 
     public function __construct()

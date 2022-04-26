@@ -13,22 +13,29 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[ApiResource()]
+#[ApiResource(
+    normalizationContext:['groups'=>'userSerialization'],
+    collectionOperations:['get','post'],
+    itemOperations:['get']
+)]
 #[ORM\Table(name: '`user`')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(['adressSerialization','commandSerialization','reviewSerializtation','userSerialization'])]
     private $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     #[Assert\Email(
         message: 'L\'adresse email {{ value }} n\'est pas valide.',
     )]
+    #[Groups(['adressSerialization','commandSerialization','reviewSerializtation','userSerialization'])]
     private $email;
 
     #[ORM\Column(type: 'json')]
+    #[Groups(['userSerialization'])]
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
@@ -42,7 +49,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     Assert\Type(
       type:'string',
       message:'Le mot de passe doit être une chaine de caractère'
-  )]
+    )]
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -56,7 +63,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     Assert\Type(
       type:'string',
       message:'Le prénom doit être une chaine de caractère'
-  )]
+    )]
+    #[Groups(['adressSerialization','commandSerialization','reviewSerializtation','userSerialization'])]
     private $firstName;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -70,7 +78,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     Assert\Type(
       type:'string',
       message:'Le nom doit être une chaine de caractère'
-  )]
+    )]
+    #[Groups(['adressSerialization','commandSerialization','reviewSerializtation','userSerialization'])]
     private $lastName;
 
     #[ORM\Column(type: 'datetime')]
@@ -81,6 +90,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     ),
     Assert\LessThan('today UTC')
     ]
+    #[Groups(['adressSerialization','commandSerialization','reviewSerializtation','userSerialization'])]
     private $birthDate;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -94,19 +104,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     Assert\Type(
       type:'string',
       message:'Le genre doit être une chaine de caractère'
-  )]
+    )]
+    #[Groups(['adressSerialization','commandSerialization','reviewSerializtation','userSerialization'])]
     private $gender;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Review::class)]
+    #[Groups(['userSerialization'])]
     private $reviews;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Command::class)]
+    #[Groups(['userSerialization'])]
     private $commands;
 
     #[ORM\ManyToMany(targetEntity: Adress::class, mappedBy: 'users')]
+    #[Groups(['userSerialization'])]
     private $adresses;
 
     #[ORM\Column(type: 'datetime')]
+    #[Groups(['adressSerialization','commandSerialization','reviewSerializtation','userSerialization'])]
     private $createdAt;
 
     public function __construct()

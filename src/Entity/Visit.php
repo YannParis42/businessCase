@@ -5,11 +5,12 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\VisitRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: VisitRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    collectionOperations:['get','post'],
+    itemOperations:['get']
+)]
 class Visit
 {
     #[ORM\Id]

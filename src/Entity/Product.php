@@ -11,12 +11,17 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
-#[ApiResource()]
+#[ApiResource(
+    normalizationContext:['groups'=>'productSerialization'],
+    collectionOperations:['get','post'],
+    itemOperations:['get']
+)]
 class Product
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(['commandSerialization', 'productSerialization','brandSerialization', 'productPictureSerialization','categorySerialization','reviewSerializtation'])]
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -30,10 +35,12 @@ class Product
         type:'string',
         message:'Le nom du produit doit être une chaine de caractère'
     )]
+    #[Groups(['commandSerialization', 'productSerialization','brandSerialization', 'productPictureSerialization','categorySerialization','reviewSerializtation'])]
     private $label;
 
     #[ORM\Column(type: 'text')]
     #[Assert\NotBlank(allowNull:FALSE)]
+    #[Groups(['commandSerialization', 'productSerialization','brandSerialization', 'productPictureSerialization','categorySerialization','reviewSerializtation'])]
     private $description;
 
     #[ORM\Column(type: 'integer')]
@@ -45,6 +52,7 @@ class Product
         type:'integer',
         message:'Le prix doit être un nombre'
     )]
+    #[Groups(['commandSerialization', 'productSerialization','brandSerialization', 'productPictureSerialization','categorySerialization','reviewSerializtation'])]
     private $price;
 
     #[ORM\Column(type: 'integer')]
@@ -54,26 +62,33 @@ class Product
         type:'integer',
         message:'Le stock doit être un nombre'
     )]
+    #[Groups(['commandSerialization', 'productSerialization','brandSerialization', 'productPictureSerialization','categorySerialization','reviewSerializtation'])]
     private $stock;
 
     #[ORM\Column(type: 'boolean')]
     #[Assert\NotBlank(allowNull:FALSE)]
+    #[Groups(['commandSerialization', 'productSerialization','brandSerialization', 'productPictureSerialization','categorySerialization','reviewSerializtation'])]
     private $isActif;
 
     #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'products')]
+    #[Groups(['productSerialization'])]
     private $categories;
 
     #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductPicture::class)]
+    #[Groups(['productSerialization'])]
     private $productPictures;
 
     #[ORM\ManyToOne(targetEntity: Brand::class, inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['productSerialization'])]
     private $brand;
 
     #[ORM\OneToMany(mappedBy: 'product', targetEntity: Review::class)]
+    #[Groups(['productSerialization'])]
     private $reviews;
 
     #[ORM\ManyToMany(targetEntity: Command::class, mappedBy: 'products')]
+    #[Groups(['productSerialization'])]
     private $commands;
 
     public function __construct()

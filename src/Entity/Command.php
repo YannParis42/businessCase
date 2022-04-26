@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\CommandRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,12 +14,19 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CommandRepository::class)]
-#[ApiResource()]
+#[ApiResource(
+    normalizationContext:['groups'=>'commandSerialization'],
+    collectionOperations:['get','post'],
+    itemOperations:['get']
+)]
+#[ApiFilter(DateFilter::class, properties:['createdAt'],)]
+#[ApiFilter(SearchFilter::class, properties:['user.firstName'=>'exact'])]
 class Command
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(['adressSerialization','commandSerialization', 'productSerialization','userSerialization'])]
     private $id;
 
     #[ORM\Column(type: 'integer')]
@@ -29,6 +39,7 @@ class Command
         message:'Le total doit être un nombre'
     )
     ]
+    #[Groups(['adressSerialization','commandSerialization', 'productSerialization','userSerialization'])]
     private $totalPrice;
 
     #[ORM\Column(type: 'integer')]
@@ -41,6 +52,7 @@ class Command
         message:'Le numéro de commande doit être un nombre'
     )
     ]
+    #[Groups(['adressSerialization','commandSerialization', 'productSerialization','userSerialization'])]
     private $numCommand;
 
     #[ORM\Column(type: 'datetime')]
@@ -50,6 +62,7 @@ class Command
         message: 'La date n\'est pas au bon format'
     ),
     ]
+    #[Groups(['adressSerialization','commandSerialization', 'productSerialization','userSerialization'])]
     private $createdAt;
 
     #[ORM\Column(type: 'integer')]
@@ -62,17 +75,21 @@ class Command
         message:'Le status de commande doit être un nombre'
     )
     ]
+    #[Groups(['adressSerialization','commandSerialization', 'productSerialization','userSerialization'])]
     private $status;
 
     #[ORM\ManyToMany(targetEntity: Product::class, inversedBy: 'commands')]
+    #[Groups(['commandSerialization'])]
     private $products;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'commands')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['commandSerialization'])]
     private $user;
 
     #[ORM\ManyToOne(targetEntity: Adress::class, inversedBy: 'commands')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['commandSerialization'])]
     private $adress;
 
     public function __construct()

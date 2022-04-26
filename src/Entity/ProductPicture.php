@@ -9,12 +9,17 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ProductPictureRepository::class)]
-#[ApiResource()]
+#[ApiResource(
+    normalizationContext:['groups'=>'productPictureSerialization'],
+    collectionOperations:['get','post'],
+    itemOperations:['get']
+)]
 class ProductPicture
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(['productSerialization', 'productPictureSerialization'])]
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -23,6 +28,7 @@ class ProductPicture
         type:'string',
         message:'Le chemin de l\'image doit être une chaine de caractère'
     )]
+    #[Groups(['productSerialization', 'productPictureSerialization'])]
     private $path;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -38,10 +44,12 @@ class ProductPicture
         message:'Le libele doit être une chaine de caractère'
     )
     ]
+    #[Groups(['productSerialization', 'productPictureSerialization'])]
     private $libele;
 
     #[ORM\ManyToOne(targetEntity: Product::class, inversedBy: 'productPictures')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['productPictureSerialization'])]
     private $product;
 
     public function getId(): ?int

@@ -11,12 +11,17 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
-#[ApiResource()]
+#[ApiResource(
+    normalizationContext:['groups'=>'categorySerialization'],
+    collectionOperations:['get','post'],
+    itemOperations:['get']
+)]
 class Category
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(['productSerialization','categorySerialization'])]
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -30,9 +35,11 @@ class Category
         type:'string',
         message:'Le nom de catégorie doit être une chaine de caractère'
     )]
+    #[Groups(['productSerialization','categorySerialization'])]
     private $label;
 
     #[ORM\ManyToMany(targetEntity: Product::class, inversedBy: 'categories')]
+    #[Groups(['categorySerialization'])]
     private $products;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categories')]

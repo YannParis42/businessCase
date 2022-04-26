@@ -11,12 +11,17 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: AdressRepository::class)]
-#[ApiResource()]
+#[ApiResource(
+    normalizationContext:['groups'=>['adressSerialization']],
+    collectionOperations:['get','post'],
+    itemOperations:['get']
+    )]
 class Adress
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(['citySerialization','adressSerialization','userSerialization'])]
     private $id;
     
     #[ORM\Column(type: 'string', length: 255)]
@@ -28,6 +33,7 @@ class Adress
         type:'string',
         message:'Le numéro de rue doit être une chaine de caractère'
     )]
+    #[Groups(['citySerialization','adressSerialization','commandSerialization','userSerialization'])]
     private $streetNumber;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -41,16 +47,20 @@ class Adress
     Assert\Type(
         type: 'string',
         message: 'Le nom de rue doit être une chaine de caractère')]
+    #[Groups(['citySerialization','adressSerialization','commandSerialization','userSerialization'])]
     private $streetName;
 
     #[ORM\ManyToOne(targetEntity: City::class, inversedBy: 'adresses')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['adressSerialization'])]
     private $city;
 
     #[ORM\OneToMany(mappedBy: 'adress', targetEntity: Command::class)]
+    #[Groups(['adressSerialization'])]
     private $commands;
 
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'adresses')]
+    #[Groups(['adressSerialization'])]
     private $users;
 
     public function __construct()
