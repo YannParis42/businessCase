@@ -28,7 +28,7 @@ class Category
       maxMessage: 'Le nom de categorie est trop long ({{ limit }})'),
       Assert\Type(
         type:'string',
-        message:'Le nnom de catégorie doit être une chaine de caractère'
+        message:'Le nom de catégorie doit être une chaine de caractère'
     )]
     private $label;
 

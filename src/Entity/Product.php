@@ -43,7 +43,7 @@ class Product
     ),
     Assert\Type(
         type:'integer',
-        message:'Le prix ddoit être un nombre'
+        message:'Le prix doit être un nombre'
     )]
     private $price;
 

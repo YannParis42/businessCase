@@ -45,8 +45,8 @@ class Command
 
     #[ORM\Column(type: 'datetime')]
     #[Assert\NotBlank(allowNull:FALSE),
-    Assert\DateTime(
-        format:'d-m-Y',
+    Assert\Type(
+        type:'datetime',
         message: 'La date n\'est pas au bon format'
     ),
     ]

@@ -69,19 +69,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     ),
     Assert\Type(
       type:'string',
-      message:'Le pnom doit être une chaine de caractère'
+      message:'Le nom doit être une chaine de caractère'
   )]
     private $lastName;
 
     #[ORM\Column(type: 'datetime')]
     #[Assert\NotBlank(allowNull:FALSE),
-    Assert\DateTime(
-        format:'d-m-Y',
+    Assert\Type(
+        type:'datetime',
         message: 'La date d\'anniversaire n\'est pas au bon format'
     ),
-    Assert\LessThan(
-        'today UTC',
-        message:'La date d\'anniversaire doit inférieur à la date du jour')
+    Assert\LessThan('today UTC')
     ]
     private $birthDate;
 
