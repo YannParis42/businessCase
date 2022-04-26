@@ -2,12 +2,16 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\CommandRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CommandRepository::class)]
+#[ApiResource()]
 class Command
 {
     #[ORM\Id]
@@ -16,15 +20,48 @@ class Command
     private $id;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\Positive(
+        message: 'Le total doit être positive'
+    ),
+    Assert\Type(
+        type:'integer',
+        message:'Le total doit être un nombre'
+    )
+    ]
     private $totalPrice;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\Positive(
+        message: 'Le numéro de commande doit être positive'
+    ),
+    Assert\Type(
+        type:'integer',
+        message:'Le numéro de commande doit être un nombre'
+    )
+    ]
     private $numCommand;
 
     #[ORM\Column(type: 'datetime')]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\DateTime(
+        format:'d-m-Y',
+        message: 'La date n\'est pas au bon format'
+    ),
+    ]
     private $createdAt;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\Positive(
+        message: 'Le status de commande doit être positif'
+    ),
+    Assert\Type(
+        type:'integer',
+        message:'Le status de commande doit être un nombre'
+    )
+    ]
     private $status;
 
     #[ORM\ManyToMany(targetEntity: Product::class, inversedBy: 'commands')]

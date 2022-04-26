@@ -2,12 +2,16 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\CityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CityRepository::class)]
+#[ApiResource()]
 class City
 {
     #[ORM\Id]
@@ -16,9 +20,28 @@ class City
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(allowNull:FALSE),
+      Assert\Length(
+        min: 2,
+        max: 50,
+        minMessage: 'Le nom de ville est trop court ({{ limit }})',
+        maxMessage: 'Le nom de ville est trop long ({{ limit }})',
+      ),
+      Assert\Type(
+        type:'string',
+        message:'Le nom de ville doit être une chaine de caractère'
+    )]
     private $name;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\NotBlank(),
+    Assert\Positive(
+        message: 'Le code postal doit être positif'
+    ),
+    Assert\Type(
+        type:'integer',
+        message:'Le code postal doit être un nombre'
+    )]
     private $cp;
 
     #[ORM\OneToMany(mappedBy: 'city', targetEntity: Adress::class)]

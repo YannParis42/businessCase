@@ -2,14 +2,18 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[ApiResource()]
 #[ORM\Table(name: '`user`')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -19,24 +23,80 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[Assert\Email(
+        message: 'L\'adresse email {{ value }} n\'est pas valide.',
+    )]
     private $email;
 
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\Length(
+      min: 5,
+      max: 100,
+      minMessage: 'Le mot de passe est trop courtv({{ limit }})',
+      maxMessage: 'Le mot de passe est trop longv({{ limit }})',
+    ),
+    Assert\Type(
+      type:'string',
+      message:'Le mot de passe doit être une chaine de caractère'
+  )]
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\Length(
+      min: 1,
+      max: 100,
+      minMessage: 'Le prénom est trop court ({{ limit }})',
+      maxMessage: 'Le prénom est trop long ({{ limit }})',
+    ),
+    Assert\Type(
+      type:'string',
+      message:'Le prénom doit être une chaine de caractère'
+  )]
     private $firstName;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\Length(
+      min: 1,
+      max: 100,
+      minMessage: 'Le nom est trop court ({{ limit }})',
+      maxMessage: 'Le nom est trop long ({{ limit }})',
+    ),
+    Assert\Type(
+      type:'string',
+      message:'Le pnom doit être une chaine de caractère'
+  )]
     private $lastName;
 
     #[ORM\Column(type: 'datetime')]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\DateTime(
+        format:'d-m-Y',
+        message: 'La date d\'anniversaire n\'est pas au bon format'
+    ),
+    Assert\LessThan(
+        'today UTC',
+        message:'La date d\'anniversaire doit inférieur à la date du jour')
+    ]
     private $birthDate;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\Length(
+      min: 1,
+      max: 100,
+      minMessage: 'Le genre est trop court ({{ limit }})',
+      maxMessage: 'Le genre est trop long ({{ limit }})',
+    ),
+    Assert\Type(
+      type:'string',
+      message:'Le genre doit être une chaine de caractère'
+  )]
     private $gender;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Review::class)]
@@ -47,6 +107,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\ManyToMany(targetEntity: Adress::class, mappedBy: 'users')]
     private $adresses;
+
+    #[ORM\Column(type: 'datetime')]
+    private $createdAt;
 
     public function __construct()
     {
@@ -256,6 +319,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         if ($this->adresses->removeElement($adress)) {
             $adress->removeUser($this);
         }
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

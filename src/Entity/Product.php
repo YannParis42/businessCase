@@ -2,12 +2,16 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
+#[ApiResource()]
 class Product
 {
     #[ORM\Id]
@@ -16,18 +20,44 @@ class Product
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\Length(
+    min: 2,
+    max: 150,
+    minMessage: 'Le nom du produit est trop court ({{ limit }})',
+    maxMessage: 'Le nom du produit est trop long ({{ limit }})'),
+    Assert\Type(
+        type:'string',
+        message:'Le nom du produit doit être une chaine de caractère'
+    )]
     private $label;
 
     #[ORM\Column(type: 'text')]
+    #[Assert\NotBlank(allowNull:FALSE)]
     private $description;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\Positive(
+        message:'le prix doit être positif'
+    ),
+    Assert\Type(
+        type:'integer',
+        message:'Le prix ddoit être un nombre'
+    )]
     private $price;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\PositiveOrZero,
+    Assert\Type(
+        type:'integer',
+        message:'Le stock doit être un nombre'
+    )]
     private $stock;
 
     #[ORM\Column(type: 'boolean')]
+    #[Assert\NotBlank(allowNull:FALSE)]
     private $isActif;
 
     #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'products')]

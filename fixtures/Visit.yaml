@@ -1,0 +1,5 @@
+App\Entity\Visit:
+
+# pour générer plusieurs visit, on fait une boucle, le num est l'id
+  visit{0..2250}:
+    visitedAt: '<dateTimeBetween("-600 days", "now")>'

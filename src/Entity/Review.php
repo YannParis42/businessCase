@@ -2,10 +2,14 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ReviewRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ReviewRepository::class)]
+#[ApiResource()]
 class Review
 {
     #[ORM\Id]
@@ -14,12 +18,28 @@ class Review
     private $id;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\Positive(
+        message: 'La note doit être positive'
+    ),
+    Assert\Type(
+        type:'integer',
+        message:'La note doit être un nombre'
+    )
+    ]
     private $note;
 
     #[ORM\Column(type: 'datetime')]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\DateTime(
+        format:'d-m-Y',
+        message: 'La date n\'est pas au bon format'
+    ),
+    ]
     private $createdAt;
 
     #[ORM\Column(type: 'text', nullable: true)]
+    #[Assert\NotBlank(allowNull:TRUE)]
     private $content;
 
     #[ORM\ManyToOne(targetEntity: Product::class, inversedBy: 'reviews')]

@@ -2,23 +2,45 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\AdressRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: AdressRepository::class)]
+#[ApiResource()]
 class Adress
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
-
+    
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\Positive(
+        message:'Le numéro doit être positif'
+    ),
+    Assert\Type(
+        type:'string',
+        message:'Le numéro de rue doit être une chaine de caractère'
+    )]
     private $streetNumber;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\Length(
+      min: 2,
+      max: 150,
+      minMessage: 'Le nom de la rue est trop court ({{min}})',
+      maxMessage: 'Le nom de la rue est trop long ({{max}})',
+    ),
+    Assert\Type(
+        type: 'string',
+        message: 'Le nom de rue doit être une chaine de caractère')]
     private $streetName;
 
     #[ORM\ManyToOne(targetEntity: City::class, inversedBy: 'adresses')]

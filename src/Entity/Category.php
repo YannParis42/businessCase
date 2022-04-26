@@ -2,12 +2,16 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
+#[ApiResource()]
 class Category
 {
     #[ORM\Id]
@@ -16,6 +20,16 @@ class Category
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(allowNull:FALSE),
+      Assert\Length(
+      min: 2,
+      max: 100,
+      minMessage: 'Le nom de categorie est trop court ({{ limit }})',
+      maxMessage: 'Le nom de categorie est trop long ({{ limit }})'),
+      Assert\Type(
+        type:'string',
+        message:'Le nnom de catégorie doit être une chaine de caractère'
+    )]
     private $label;
 
     #[ORM\ManyToMany(targetEntity: Product::class, inversedBy: 'categories')]

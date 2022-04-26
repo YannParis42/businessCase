@@ -2,12 +2,16 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\BrandRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: BrandRepository::class)]
+#[ApiResource()]
 class Brand
 {
     #[ORM\Id]
@@ -16,9 +20,24 @@ class Brand
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(allowNull:FALSE),
+      Assert\Length(
+      min: 2,
+      max: 100,
+      minMessage: 'Le nom de la marque est trop court ({{ limit }})',
+      maxMessage: 'Le nom de la marque est trop long ({{ limit }})'),
+      Assert\Type(
+        type:'string',
+        message:'Le nom de marque doit être une chaine de caractère'
+    )]
     private $label;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(allowNull:FALSE),
+    Assert\Type(
+        type:'string',
+        message:'On attend une chaine de caractère'
+    )]
     private $imagePath;
 
     #[ORM\OneToMany(mappedBy: 'brand', targetEntity: Product::class)]
