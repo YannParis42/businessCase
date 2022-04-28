@@ -52,7 +52,11 @@ use Symfony\Component\Serializer\Annotation\Groups;
         'getRecurrenceFromDates'=>[ //% recurrence commandes
             'method'=>'GET',
             'path'=>'/command/Recurrence',
-            'controller'=>RecurrenceController::class]             
+            'controller'=>RecurrenceController::class],
+    'getTotalAbandonFromDates'=>[ //pourcentage abandon panier
+            'method'=>'GET',
+            'path'=>'/command/getAbandon',
+            'controller'=>AbandonCountController::class]             
            
     ],   
     
