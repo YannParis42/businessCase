@@ -48,7 +48,7 @@ class CommandRepository extends ServiceEntityRepository
     }
 
     public function findCommandBetweenDates($minDate, $maxDate)
-    {
+    {   //nombre de commande entre 2 dates
         return $this->createQueryBuilder('c')
         ->where('c.createdAt > :date_min')
         ->andWhere('c.createdAt < :date_max')
@@ -59,7 +59,7 @@ class CommandRepository extends ServiceEntityRepository
     }
 
     public function findBasketBetweenDates($minDate, $maxDate)
-    {
+    {   //nombre de paniers entre 2 dates
         return $this->createQueryBuilder('b')
         ->where('b.createdAt > :date_min')
         ->andWhere('b.createdAt < :date_max')
@@ -70,7 +70,7 @@ class CommandRepository extends ServiceEntityRepository
     }
 
     public function findVenteBetweenDates($minDate, $maxDate)
-    {
+    {   //nombre de ventes entre 2 dates
         return $this->createQueryBuilder('v')
         ->where('v.createdAt > :date_min')
         ->andWhere('v.createdAt < :date_max')
@@ -81,7 +81,7 @@ class CommandRepository extends ServiceEntityRepository
     }
 
     public function findConversionBetweenDates($minDate, $maxDate)
-    {
+    {   //commandes converties entre 2 dates
         return $this->createQueryBuilder('co')
         ->where('co.createdAt > :date_min')
         ->andWhere('co.createdAt < :date_max')
@@ -92,7 +92,7 @@ class CommandRepository extends ServiceEntityRepository
     }
 
     public function findConvPanierBetweenDates($minDate, $maxDate)
-    {
+    {   //conv panier
         return $this->createQueryBuilder('cp')
         ->where('cp.createdAt > :date_min')
         ->andWhere('cp.createdAt < :date_max')
@@ -101,7 +101,8 @@ class CommandRepository extends ServiceEntityRepository
         ->getQuery()->getResult();
     }
 
-    public function findValuesBetweenDates($minDate, $maxDate){
+    public function findValuesBetweenDates($minDate, $maxDate)
+    {   //tout paniers entre 2 dates
         return $this->createQueryBuilder('va')
         ->where('va.createdAt > :date_min')
         ->andWhere('va.createdAt < :date_max')
@@ -110,7 +111,8 @@ class CommandRepository extends ServiceEntityRepository
         ->getQuery()->getResult();
     }
 
-    public function findRecurrenceNewBetweenDates($minDate, $maxDate){
+    public function findRecurrenceNewBetweenDates($minDate, $maxDate)
+    {   //commandes entre 2 dates et user nouveaux
         return $this->createQueryBuilder('r')
         ->innerJoin('r.user','u')
         ->Where('r.status = 200 OR r.status = 300')
