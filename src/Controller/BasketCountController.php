@@ -20,6 +20,8 @@ class BasketCountController extends AbstractController
 
     public function __invoke(Request $request)
     {
+        dump($this->getUser());
+
         $min_date_string = $request->query->get('min_date');
         $max_date_string = $request->query->get('max_date');
 

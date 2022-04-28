@@ -113,9 +113,9 @@ class CommandRepository extends ServiceEntityRepository
     public function findRecurrenceNewBetweenDates($minDate, $maxDate){
         return $this->createQueryBuilder('r')
         ->innerJoin('r.user','u')
+        ->Where('r.status = 200 OR r.status = 300')
         ->andWhere('u.createdAt > :date_min')
         ->andWhere('u.createdAt < :date_max')
-        ->andWhere('r.status = 200 OR r.status = 300')
         ->setParameter('date_min', $minDate)
         ->setParameter('date_max', $maxDate)
         ->getQuery()->getResult();
