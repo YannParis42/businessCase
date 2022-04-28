@@ -31,5 +31,12 @@ class RecurrenceController extends AbstractController
 
         $recurence = $this->commandRepository->findRecurrenceNewBetweenDates($minDate, $maxDate);
         $ventes = $this->commandRepository->findVenteBetweenDates($minDate, $maxDate);
+        dump($recurence);
+        dump($ventes);
+
+        $nbCommandesAncien = count($ventes) - count($recurence);
+        $result = ($nbCommandesAncien * 100)/ count($ventes);
+        return $this->json($result);
+
     }
 }

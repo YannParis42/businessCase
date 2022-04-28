@@ -17,9 +17,22 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
-            lazy: true
-            provider: app_user_provider
+        login:
+            pattern: ^/api/login
+            stateless: true
+            json_login:
+                check_path: /api/login_check
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+                username_path: 'email' # Add this ONLY if you want to change property used in JSON body of the login request
+
+        api:
+            pattern:   ^/api/
+            stateless: true
+            jwt: ~    
+        # main:
+        #     lazy: true
+        #     provider: app_user_provider
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
@@ -29,9 +42,11 @@ security:
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
-    access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+    # access_control:
+    #     # - { path: ^/admin, roles: ROLE_ADMIN }
+    #     # - { path: ^/profile, roles: ROLE_USER }
+    #     - { path: ^/api, roles: ROLE_ADMIN }
+    #     - { path: ^/api/(login_check)|(register), roles: PUBLIC_ACCESS }
 
 when@test:
     security:
