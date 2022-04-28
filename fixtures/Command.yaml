@@ -1,11 +1,15 @@
+parameters:
+  statusTab: [100,200,300,400,500]
+
 App\Entity\Command:
+
 
 # pour générer plusieurs user, on fait une boucle, le num est l'id
   command{0..250}:
     totalPrice: '<numberBetween(1,200)>'
     numCommand (unique): '<numberBetween(1, 5000)>'
     createdAt: '<dateTimeBetween("-100 days", "now")>'
-    status: '<numberBetween(1,3)>'
+    status: '<randomElement($statusTab)>'
     # relation avec d'autres tables
     products: '<numberBetween(1,10)>x @product*'
     user: '@user*'

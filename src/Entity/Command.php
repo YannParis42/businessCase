@@ -6,6 +6,14 @@ use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use App\Controller\AbandonCountController;
+use App\Controller\BasketCountController;
+use App\Controller\CommandCountController;
+use App\Controller\ConversionCountController;
+use App\Controller\ConversionPaniersController;
+use App\Controller\RecurrenceController;
+use App\Controller\ValueBasketController;
+use App\Controller\VenteCountController;
 use App\Repository\CommandRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -16,7 +24,38 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Entity(repositoryClass: CommandRepository::class)]
 #[ApiResource(
     normalizationContext:['groups'=>'commandSerialization'],
-    collectionOperations:['get','post'],
+    collectionOperations:['get','post',
+    'getTotalCommandFromDates'=>[  //nombres de commandes
+        'method'=>'GET',
+        'path'=>'/command/getTotalCommand',
+        'controller'=>CommandCountController::class],
+    'getTotalBasketFromDates'=>[  //nombres de panier
+        'method'=>'GET',
+        'path'=>'/command/getTotalBasket',
+        'controller'=>BasketCountController::class],
+    'getTotalVenteFromDates'=>[  //total des ventes en valeurs
+        'method'=>'GET',
+        'path'=>'/command/getTotalVente',
+        'controller'=>VenteCountController::class],
+    'getTotalConversionFromDates'=>[ //pourcentage conversion panier
+        'method'=>'GET',
+        'path'=>'/command/getTotalConversion',
+        'controller'=>ConversionCountController::class],
+    'getBasketValueFromDates'=>[ //valeurs moyen panier
+        'method'=>'GET',
+        'path'=>'/command/getValueBasket',
+        'controller'=>ValueBasketController::class],
+    'getBasketValueFromDates'=>[ //valeurs conversion panier
+        'method'=>'GET',
+        'path'=>'/command/convPanier',
+        'controller'=>ConversionPaniersController::class],
+        'getRecurrenceFromDates'=>[ //% recurrence commandes
+            'method'=>'GET',
+            'path'=>'/command/Recurrence',
+            'controller'=>RecurrenceController::class]             
+           
+    ],   
+    
     itemOperations:['get']
 )]
 #[ApiFilter(DateFilter::class, properties:['createdAt'],)]
