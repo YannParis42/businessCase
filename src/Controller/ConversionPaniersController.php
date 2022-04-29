@@ -39,6 +39,6 @@ class ConversionPaniersController extends AbstractController
         $paniersNumber = $this->convPanierRepository->findCommandBetweenDates($minDate, $maxDate);
 
         $result= (count($paniersNumber)*100)/count($visits);
-        return $this->json($result);
+        return $this->json(['data'=>$result]);
     }
 }

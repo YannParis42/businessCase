@@ -33,6 +33,6 @@ class ConversionCountController extends AbstractController
         $successEntities = $this->conversionCountRepository->findVenteBetweenDates($minDate, $maxDate);
         $percentage = (count($successEntities) *100) / count($conversionEntities);
 
-        return $this->json($percentage);
+        return $this->json(['data'=>$percentage]);
     }
 }

@@ -36,7 +36,7 @@ class RecurrenceController extends AbstractController
 
         $nbCommandesAncien = count($ventes) - count($recurence);
         $result = ($nbCommandesAncien * 100)/ count($ventes);
-        return $this->json($result);
+        return $this->json(['data'=>$result]);
 
     }
 }

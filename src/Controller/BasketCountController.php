@@ -34,6 +34,6 @@ class BasketCountController extends AbstractController
         $basketEntities = $this->basketRepository->findBasketBetweenDates($minDate, $maxDate);
         dump($basketEntities);
 
-        return $this->json(count($basketEntities));
+        return $this->json(['data'=>count($basketEntities)]);
     }
 }

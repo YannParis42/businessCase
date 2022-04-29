@@ -37,6 +37,6 @@ class ValueBasketController extends AbstractController
 
         $average= $totalVente / count($venteEntities);    
 
-        return $this->json($average);
+        return $this->json(['data'=>$average]);
     }
 }

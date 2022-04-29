@@ -1,0 +1,15 @@
+@import "bootstrap";
+
+$green: rgb(34, 194, 147);
+
+h1 {
+    display: none;
+}
+
+.green {
+    background-color: $green;
+}
+
+// .phare{
+//     background-image: url("{{ asset('build/images/space.png') }}");
+// }

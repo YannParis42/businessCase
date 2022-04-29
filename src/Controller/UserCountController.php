@@ -32,6 +32,6 @@ class UserCountController extends AbstractController
         $userEntities = $this->userRepository->findUserBetweenDates($minDate, $maxDate);
         dump($userEntities);
 
-        return $this->json(count($userEntities));
+        return $this->json(['data'=>count($userEntities)]);
     }
 }

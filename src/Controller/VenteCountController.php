@@ -35,6 +35,6 @@ class VenteCountController extends AbstractController
         foreach($venteEntities as $vente){
             $totalVente +=$vente->getTotalPrice();}
 
-        return $this->json($totalVente);
+        return $this->json(['data'=>$totalVente]);
     }
 }

@@ -1,19 +1,142 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}La Nîmes'alerie!{% endblock %}</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    <script src="https://kit.fontawesome.com/be9a5a2966.js" crossorigin="anonymous"></script>
+    {% block stylesheets %}
+    {{ encore_entry_link_tags('style') }}
+    {% endblock %}
+
+    {% block javascripts %}
+    {{ encore_entry_script_tags('script') }}
+    {% endblock %}
+</head>
+
+<body>
+
+    <header class="bg-primary container-fluid m-0 p-0">
+        <div class="row">
+
+            <h1>La Nîmes'alerie</h1>
+
+            <!-- navbar -->
+            <div>
+                <nav class="navbar navbar-expand-lg navbar-light green">
+                    <div class=" container-fluid">
+                        <a class="navbar-brand" href="#">
+                            <img src="{{ asset('build/images/green-logo.png') }}" alt="" width="100" height="100">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="fs-2 navbar-nav me-auto mb-2 mb-lg-0 m-auto">
+                                <li class="nav-item pe-3">
+                                    <a class="nav-link " aria-current="page" href="#">Accueil</a>
+                                </li>
+                                <li class="nav-item pe-3">
+                                    <a class="nav-link " href="#">Espace<i class="fa-solid fa-user-astronaut"></i></a>
+                                </li>
+                                <li class="nav-item pe-3">
+                                    <a class="nav-link " href="#">Chiens<i class="fa-solid fa-dog"></i></a>
+                                </li>
+                                <li class="nav-item pe-3">
+                                    <a class="nav-link " href="#">Chats<i class="fa-solid fa-cat"></i></a>
+                                </li>
+                                <li class="nav-item pe-3">
+                                    <a class="nav-link " href="#">Oiseaux<i class="fa-solid fa-dove"></i></a>
+                                </li>
+                            </ul>
+                            <!-- champ recherche -->
+                            <div class="pe-8">
+                                <form class="d-flex me-8">
+                                    <input class="form-control me-0" type="search" placeholder="Rechercher"
+                                        aria-label="Search">
+                                    <button class="btn btn-outline-dark me-8" type="submit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path
+                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                            <!-- //champ recherche -->
+
+                            <!-- bouton panier -->
+                            <a class="nav-link  ps-8 " href="#">
+                                <button type="button " class="btn btn-outline-dark">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-basket3-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.468 15.426.943 9h14.114l-1.525 6.426a.75.75 0 0 1-.729.574H3.197a.75.75 0 0 1-.73-.574z" />
+                                    </svg>
+                                </button>
+                            </a>
+                            <!-- //bouton panier -->
+
+                            <!-- bouton connexion -->
+                            <a class="nav-link m-0 p-0" href="#">
+                                <button type="button" class="btn btn-outline-dark">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-person-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                    </svg>
+                                </button>
+                            </a>
+                            <!-- //bouton connexion -->
+                        </div>
+
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    {% block body %}{% endblock %}
+
+    <footer class=" container-fluid m-0 p-0 green">
+        <div class="row">
+
+            <a class="navbar-brand col-2 ms-2" href="#">
+                <img src="{{ asset('build/images/green-logo.png') }}" alt="" width="100" height="100">
+            </a>
+
+            <!-- Button trigger modal -->
+
+            <button type="button" class="btn btn-outline-dark col-2 m-auto ms-2 p-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                CGU/CGV
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Conditions général de ventes</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn green" data-bs-dismiss="modal">Fermeture</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
 </html>

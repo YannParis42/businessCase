@@ -32,7 +32,7 @@ class CommandCountController extends AbstractController
         $commandEntities = $this->commandRepository->findCommandBetweenDates($minDate, $maxDate);
         dump($commandEntities);
 
-        return $this->json(count($commandEntities));
+        return $this->json(['data'=>count($commandEntities)]);
 
     }
 }

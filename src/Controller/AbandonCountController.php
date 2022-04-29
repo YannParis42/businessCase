@@ -35,6 +35,6 @@ class AbandonCountController extends AbstractController
         $result = 100 - $percentage;
         
 
-        return $this->json($result);
+        return $this->json(['data'=>$result]);
     }
 }
