@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Controller\BestSellingProductController;
 use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -13,7 +14,11 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 #[ApiResource(
     normalizationContext:['groups'=>'productSerialization'],
-    collectionOperations:['get','post'],
+    collectionOperations:['get','post',
+    'getTotalProductSoldDesc'=>[  //meilleurs produits vendus
+        'method'=>'GET',
+        'path'=>'/product/getTotalProductSoldDesc',
+        'controller'=>BestSellingProductController::class],],
     itemOperations:['get']
 )]
 class Product
