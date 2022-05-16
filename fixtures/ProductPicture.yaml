@@ -1,9 +1,146 @@
 App\Entity\ProductPicture:
 
 # pour générer plusieurs city, on fait une boucle, le num est l'id
-  prodductPicture{0..550}:
-    path: '<word()>.jpeg'
-    libele: '<word()>' 
+  productPicture0:
+    path: 'Anione1.jpg'
+    libele: 'couchage-chats' 
     # relation avec d'autres tables
-    product: '@product*'
+    product: '@product0'
 
+  productPicture1:
+    path: 'Anione2.jpg'
+    libele: 'couchage-chats' 
+    # relation avec d'autres tables
+    product: '@product1'
+
+  productPicture2:
+    path: 'Anione3.jpg'
+    libele: 'gamelles-chats' 
+    # relation avec d'autres tables
+    product: '@product2'    
+
+  productPicture3:
+    path: 'Fitfun1.jpg'
+    libele: 'gamelles-chats' 
+    # relation avec d'autres tables
+    product: '@product3' 
+
+  productPicture4:
+    path: 'Anione4.jpg'
+    libele: 'jouet-chats' 
+    # relation avec d'autres tables
+    product: '@product4'       
+
+  productPicture5:
+    path: 'Anione5.jpg'
+    libele: 'jouet-chats' 
+    # relation avec d'autres tables
+    product: '@product5'    
+
+  productPicture6:
+    path: 'RealNature1.jpg'
+    libele: 'nouriture-chats' 
+    # relation avec d'autres tables
+    product: '@product6'       
+
+  productPicture7:
+    path: 'RealNature2.jpg'
+    libele: 'nouriture-chats' 
+    # relation avec d'autres tables
+    product: '@product7'  
+
+  productPicture8:
+    path: 'FitFun2.png'
+    libele: 'couchage-chiens' 
+    # relation avec d'autres tables
+    product: '@product8'       
+
+  productPicture9:
+    path: 'FitFun3.jpg'
+    libele: 'couchage-chiens' 
+    # relation avec d'autres tables
+    product: '@product9'  
+
+  productPicture10:
+    path: 'Anione6.jpg'
+    libele: 'gamelle-chiens' 
+    # relation avec d'autres tables
+    product: '@product10'       
+
+  productPicture11:
+    path: 'Anione7.jpg'
+    libele: 'couchage-chiens' 
+    # relation avec d'autres tables
+    product: '@product11' 
+
+  productPicture12:
+    path: 'FitFunJouet1.jpg'
+    libele: 'jouet-chiens' 
+    # relation avec d'autres tables
+    product: '@product12'       
+
+  productPicture13:
+    path: 'FitFunJouet2.png'
+    libele: 'jouet-chiens' 
+    # relation avec d'autres tables
+    product: '@product13' 
+
+  productPicture14:
+    path: 'Orijen1.jpg'
+    libele: 'nourriture-chiens' 
+    # relation avec d'autres tables
+    product: '@product14'       
+
+  productPicture15:
+    path: 'Orijen2.jpg'
+    libele: 'nourriture-chiens' 
+    # relation avec d'autres tables
+    product: '@product15' 
+
+  productPicture16:
+    path: 'RoyalCanin1.jpg'
+    libele: 'nourriture-chiens' 
+    # relation avec d'autres tables
+    product: '@product16'       
+
+  productPicture17:
+    path: 'RoyalCanin2.jpg'
+    libele: 'nourriture-chiens' 
+    # relation avec d'autres tables
+    product: '@product17'
+
+  productPicture18:
+    path: 'Delibest1.jpg'
+    libele: 'nourriture-chiens' 
+    # relation avec d'autres tables
+    product: '@product18'       
+
+  productPicture19:
+    path: 'Pedigree1.jpg'
+    libele: 'nourriture-chiens' 
+    # relation avec d'autres tables
+    product: '@product19'
+
+  productPicture20:
+    path: 'multifit1.jpg'
+    libele: 'nourriture-oiseaux' 
+    # relation avec d'autres tables
+    product: '@product20'       
+
+  productPicture21:
+    path: 'Multifit2.png'
+    libele: 'nourriture-oiseaux' 
+    # relation avec d'autres tables
+    product: '@product21'  
+
+  productPicture22:
+    path: 'Interzoo1.jpg'
+    libele: 'volière-oiseaux' 
+    # relation avec d'autres tables
+    product: '@product22'       
+
+  productPicture23:
+    path: 'Interzoo2.png'
+    libele: 'volière-oiseaux' 
+    # relation avec d'autres tables
+    product: '@product23'                                      

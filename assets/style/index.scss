@@ -1,6 +1,11 @@
 @import "bootstrap";
 
-$green: rgb(34, 194, 147);
+$green: #22C293;
+$grey: rgb(68, 68, 68);
+$white: white;
+
+
+
 
 h1 {
     display: none;
@@ -8,8 +13,18 @@ h1 {
 
 .green {
     background-color: $green;
+    color: $grey;
 }
 
-// .phare{
-//     background-image: url("{{ asset('build/images/space.png') }}");
-// }
+.phare{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.grey{
+    color: $grey;
+}
+
+.greenText{
+    color: $green;
+}

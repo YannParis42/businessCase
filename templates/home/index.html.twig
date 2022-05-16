@@ -1,26 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-front.html.twig' %}
 
 {% block title %}La Nîmes'alerie!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper {
-        margin: 1em auto;
-        max-width: 800px;
-        width: 95%;
-        font: 18px/1.5 sans-serif;
-    }
-
-    .example-wrapper code {
-        background: #F5F5F5;
-        padding: 2px 6px;
-    }
-</style>
-
 <main>
 
     <!-- carousel -->
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselSpace" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="{{ asset('build/images/carousel1.jpg') }}" class="d-block w-100" alt="...">
@@ -35,13 +21,11 @@
                 <img src="{{ asset('build/images/carousel4.jpg') }}" class="d-block w-100" alt="...">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSpace" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselSpace" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
@@ -50,10 +34,10 @@
 
     <!-- testimonies -->
     <div class="p-3">
-        <h2 class="text-primary">Nos clients parlent de nous</h2>
+        <h2 class="greenText">Nos clients parlent de nous</h2>
     </div>
 
-    <div class="row w-100 p-0 m-0">
+    <div class="row w-100 p-0 m-0 mb-4">
         <!-- felix minette-->
         <div class="col-12 col-md-6">
             <div class="row">
@@ -61,17 +45,17 @@
 
                 <div class="col-6 green d-flex justify-content-center">
                     <div class="align-self-center">
-                        <p class="fs-4 text-success text-start">"La meilleur littière c'est ici!"</p>
-                        <p class="fs-3 text-success text-end">Felix</p>
+                        <p class="fs-4 grey text-start">"La meilleur littière c'est ici!"</p>
+                        <p class="fs-3 grey text-end">Felix</p>
                     </div>
                 </div>
 
                 <div class="col-6 green d-flex justify-content-center">
                     <div class="align-self-center">
-                        <p class="fs-4 text-success text-start">"L'<span class="text-secondary">espace</span>
+                        <p class="fs-4 grey text-start">"L'<span class="text-secondary">espace</span>
                             c'était
                             cool!"</p>
-                        <p class="fs-3 text-success text-end">Minette</p>
+                        <p class="fs-3 grey text-end">Minette</p>
                     </div>
                 </div>
 
@@ -89,17 +73,17 @@
 
                 <div class="col-6 green d-flex justify-content-center">
                     <div class="align-self-center">
-                        <p class="fs-4 text-success text-start">"Le plus grand choix de croquettes de la région."
+                        <p class="fs-4 grey text-start">"Le plus grand choix de croquettes de la région."
                         </p>
-                        <p class="fs-3 text-success text-end">Jack</p>
+                        <p class="fs-3 grey text-end">Jack</p>
                     </div>
                 </div>
 
                 <div class="col-6 green d-flex justify-content-center">
                     <div class="align-self-center">
-                        <p class="fs-4 text-success text-start">"Mes maîtres ne jurent que par la Nîmes'alerie!"</p>
+                        <p class="fs-4 grey text-start">"Mes maîtres ne jurent que par la Nîmes'alerie!"</p>
                         <br>
-                        <p class="fs-3 text-success text-end">Dogo</p>
+                        <p class="fs-3 grey text-end">Dogo</p>
                     </div>
                 </div>
 
@@ -113,38 +97,38 @@
     <!-- //testimonies -->
 
     <!-- produit phare -->
-    <div class="phare m-0 p-3">
-        <h2 class="text-primary py-3">Notre produit phare</h2>
+    <div class="phare m-0 p-3 " style="background-image: url('{{ asset("build/images/space.png") }}')">
+        <h2 class="greenText py-3">Notre produit phare</h2>
 
         <!-- laika -->
-            <section class="row justify-content-center  p-0">
+        <section class="row justify-content-center p-0 mb-4">
 
-                <img class="col-10 col-md-4 img-fluid m-0 p-0" src="{{ asset('build/images/laika.jpg') }}" alt="">
+            <img class="col-10 col-md-4 img-fluid m-0 p-0" src="{{ asset('build/images/laika.jpg') }}" alt="">
 
-                <div class="col-10 col-md-4 green m-0 d-flex-column text-center ">
+            <div class="col-10 col-md-4 green m-0 d-flex-column text-center ">
 
-                    <div class="pt-5">
-                        <p class="fs-3 text-success text-start">“Tout comme Laïka, offrez à votre compagnon un <span
-                                class="text-secondary">voyage spatial</span>! En partenariat avec l’armée
-                            Américaine, faites avancer la science.”</p>
-                        <p class="fs-2 text-secondary text-end">M.Capard</p>
-                    </div>
-
-                    <div class="mb-5">
-                        <button type="button" class="btn btn-outline-dark">En savoir plus</button>
-                    </div>
-
+                <div class="pt-5">
+                    <p class="fs-3 grey text-start">“Tout comme Laïka, offrez à votre compagnon un <span
+                            class="text-secondary">voyage spatial</span>! En partenariat avec l’armée
+                        Américaine, faites avancer la science.”</p>
+                    <p class="fs-2 text-secondary text-end">M.Capard</p>
                 </div>
-            </section>
+
+                <div class="mb-5">
+                    <button type="button" class="btn btn-outline-dark">En savoir plus</button>
+                </div>
+
+            </div>
+        </section>
         <!-- //laika -->
 
     </div>
     <!-- //produit phare -->
 
     <!-- A propos -->
-    <div class="p-3">
-        <h2 class="text-primary">A propos de nous</h2>
-        <P class="fs-4 text-primary">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, veniam
+    <div class="p-3 ">
+        <h2 class="greenText">A propos de nous</h2>
+        <P class="fs-4 greenText">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, veniam
             dicta at
             laboriosam
             voluptatibus aliquam. Vero <span class="text-secondary">voyage dans l'espace</span> earum
@@ -157,7 +141,6 @@
         <p class="fs-2 text-end">M. Capard</p>
     </div>
     <!-- // Apropos -->
-
 </main>
 
 {% endblock %}

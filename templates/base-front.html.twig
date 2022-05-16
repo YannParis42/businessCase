@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<div id="navbar"></div>
+
+<header class="bg-primary container-fluid m-0 p-0">
+    {% block header%}
+    {% include "common/_navbar.html.twig" %}
+    {% endblock %}
+</header>
+
+{% block body %}{% endblock %}
+
+<footer class=" container-fluid m-0 p-0 green">
+    {% block footer%}
+    {% include "common/_footer.html.twig" %}
+    {% endblock %}
+</footer>
+
+{% endblock %}

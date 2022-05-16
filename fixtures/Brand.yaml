@@ -1,6 +1,42 @@
 App\Entity\Brand:
 
 # pour générer plusieurs brand, on fait une boucle, le num est l'id
-  brand{0..150}:
-    label: '<word()>'
-    imagePath: '<word()>.jpeg' 
+  # brand{0..50}:
+  #   label: '<word()>'
+  #   imagePath: '<word()>.jpeg' 
+
+  brand0:
+    label: 'AniOne'
+    imagePath: 'anione.jpg'
+
+  brand1:
+    label: 'Fit+Fun'
+    imagePath: 'fitfun.jpg'
+
+  brand2:
+    label: 'Real Nature'
+    imagePath: 'realnature.jpg'
+
+  brand3:
+    label: 'Orijen'
+    imagePath: 'orijen.jpg'
+
+  brand4:
+    label: 'Royal Canin'
+    imagePath: 'royalCanin.jpg'
+
+  brand5:
+    label: 'Delibest'
+    imagePath: 'delibest.jpg'
+
+  brand6:
+    label: 'Pedigree'
+    imagePath: 'pedigree.jpg'    
+
+  brand7:
+    label: 'Multifit'
+    imagePath: 'multifit.png'    
+
+  brand8:
+    label: 'Interzoo'
+    imagePath: 'interzoo.png'
