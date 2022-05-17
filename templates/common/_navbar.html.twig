@@ -32,6 +32,14 @@
                             <a class="nav-link " href="#">Oiseaux</a>
                         </li>
                     </ul>
+
+                    {% if app.user %}
+                    <div>
+                        <p>{{ app.user.firstName }}</p>
+                        <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    </div>
+
+                    {% endif %}
                     <!-- champ recherche -->
                     {# <div class="pe-8">
                         <form class="d-flex me-8">
@@ -61,7 +69,7 @@
                     <!-- //bouton panier -->
 
                     <!-- bouton connexion -->
-                    <a class="nav-link m-0 p-0" href="#">
+                    <a class="nav-link m-0 p-0" href="{{ path('app_login') }}">
                         <button type="button" class="btn btn-outline-dark">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-person-fill" viewBox="0 0 16 16">

@@ -3,12 +3,7 @@ App\Entity\Product:
 # pour générer plusieurs city, on fait une boucle, le num est l'id
   product0:
     label: 'AniOne Couverture Bernie beige'
-    description: 'La couette douillette Bernie est idéale à la maison, en voiture ou en déplacement.
-Offrez, avec la couverture Bernie à votre animal une couchette tout en douceur. Votre petit compagnon est protégé efficacement du froid du sol tout en étant élégant et élégant. Elle s’adapte parfaitement à différentes ambiances, mais est également idéale en voiture ou en déplacement.
-
-En cas de salissures, la couette se lave facilement 30°C .
-
-Les dimensions de la couverture Bernie de AniOne (l x L x h) : env. 120 x 85 x 1 cm' 
+    description: 'La couette douillette Bernie est idéale à la maison, en voiture ou en déplacement. Offrez, avec la couverture Bernie à votre animal une couchette tout en douceur. Votre petit compagnon est protégé efficacement du froid du sol tout en étant élégant et élégant. Elle s’adapte parfaitement à différentes ambiances, mais est également idéale en voiture ou en déplacement. En cas de salissures, la couette se lave facilement 30°C.Les dimensions de la couverture Bernie de AniOne (l x L x h) : env. 120 x 85 x 1 cm' 
     price: '<numberBetween(10,40)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -18,10 +13,7 @@ Les dimensions de la couverture Bernie de AniOne (l x L x h) : env. 120 x 85 x 1
 
   product1:
     label: 'AniOne ANIO Patchwork Tapis de sol Pepe&Kitty'
-    description: 'Le coussin AniOne, au design moderne en patchwork, offre à votre animal un endroit extra doux où se coucher.
-La face inférieure du coussin est dotée d'un revêtement antidérapant de haute qualité. Il tient donc bien en place, même sur les sols glissants, et évite de glisser lorsque votre chien bouge pendant son sommeil. Cet oreiller à usage universel est idéal pour la maison, mais peut aussi être facilement emporté en voyage. Grâce à la simplicité de son design, le coussin s'intègre parfaitement dans n'importe quel environnement et représente un point mignon et attrayant. Le coussin est fabriqué en polyester et peut être facilement lavé à 30°C dans la machine à laver.
-
-Sur le coussin de relaxation Pepe & Kitty d'AniOne, les premiers moments de repos de votre favori seront quelque chose de très spécial.' 
+    description: "Le coussin AniOne, au design moderne en patchwork, offre à votre animal un endroit extra doux où se coucher. La face inférieure du coussin est dotée d'un revêtement antidérapant de haute qualité. Il tient donc bien en place, même sur les sols glissants, et évite de glisser lorsque votre chien bouge pendant son sommeil." 
     price: '<numberBetween(10,40)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -31,10 +23,7 @@ Sur le coussin de relaxation Pepe & Kitty d'AniOne, les premiers moments de repo
 
   product2:
     label: 'AniOne Gamelle en céramique Wave'
-    description: 'Par son design sobre et moderne la gamelle en céramique AniOne s’adapte à toutes les maisons !
-La Gamelle en céramique AniOne séduit non seulement par son design attrayant dans des couleurs harmonieuses. Elle a un poids propre qui lui donne une bonne stabilité. Le rebord élevé empêche que le contenu ne se renverse lorsque l’animal mange ou boit. Le matériau se distingue par des propriétés hygiéniques, il est lisse et sans bactéries !
-
-La gamelle Fressnapf est disponible en  quatre tailles différentes, elle est entièrement composée de céramique. La gamelle pour chiens se lave à la machine à laver.' 
+    description: "Par son design sobre et moderne la gamelle en céramique AniOne s’adapte à toutes les maisons ! La Gamelle en céramique AniOne séduit non seulement par son design attrayant dans des couleurs harmonieuses. Elle a un poids propre qui lui donne une bonne stabilité. Le rebord élevé empêche que le contenu ne se renverse lorsque l’animal mange ou boit. Le matériau se distingue par des propriétés hygiéniques, il est lisse et sans bactéries ! La gamelle Fressnapf est disponible en  quatre tailles différentes, elle est entièrement composée de céramique. La gamelle pour chiens se lave à la machine à laver." 
     price: '<numberBetween(10,15)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -44,8 +33,7 @@ La gamelle Fressnapf est disponible en  quatre tailles différentes, elle est en
 
   product3:
     label: 'FIT+FUN Gamelle double'
-    description: 'Grâce au revêtement antidérapant, la gamelle double Fit+Fun dispose d’un support solide pour que votre compagnon puisse profiter de son repas en toute tranquillité.
-La gamelle double peut être utilisée en même temps pour l’eau et la nourriture et se nettoie facilement grâce à sa texture. ' 
+    description: "Grâce au revêtement antidérapant, la gamelle double Fit+Fun dispose d’un support solide pour que votre compagnon puisse profiter de son repas en toute tranquillité. La gamelle double peut être utilisée en même temps pour l’eau et la nourriture et se nettoie facilement grâce à sa texture." 
     price: '<numberBetween(10,15)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -55,17 +43,7 @@ La gamelle double peut être utilisée en même temps pour l’eau et la nourrit
 
   product4:
     label: 'AniOne Peigne pour chat Amazone'
-    description: 'La canne de jeu AniOne pour chat permet toutes sortes de jeux.
-Avec ces cannes de jeux pour chat, aux couleurs sympathiques, plus aucun risque de désœuvrement ; les plumes  colorées et la clochette sont particulièrement attrayantes pour votre petit félin et l’invitent à jouer avec vous. Le jeu en commun favorise non seulement les relations avec son maître , mais aussi l’ instinct de chasse naturel et cultive la concentration et l’agilité de votre chat.
-
-Dimensions :  env. 40 cm
-
-Information importante :
-Jouet pour animaux !
-Veuillez surveiller votre animal lors de l'utilisation.
-Malgré sa haute qualité - aucun article n'est indestructible.
-Les jouets trop petits peuvent être facilement avalés.
-Veuillez choisir l'article en fonction de la taille de la gueule de l’animal.' 
+    description: "La canne de jeu AniOne pour chat permet toutes sortes de jeux. Avec ces cannes de jeux pour chat, aux couleurs sympathiques, plus aucun risque de désœuvrement ; les plumes  colorées et la clochette sont particulièrement attrayantes pour votre petit félin et l’invitent à jouer avec vous. Le jeu en commun favorise non seulement les relations avec son maître , mais aussi l’ instinct de chasse naturel et cultive la concentration et l’agilité de votre chat. Dimensions :  env. 40 cm Information importante : Jouet pour animaux ! Veuillez surveiller votre animal lors de l'utilisation. Malgré sa haute qualité - aucun article n'est indestructible.Les jouets trop petits peuvent être facilement avalés. Veuillez choisir l'article en fonction de la taille de la gueule de l’animal." 
     price: '<numberBetween(10,15)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -75,17 +53,7 @@ Veuillez choisir l'article en fonction de la taille de la gueule de l’animal.'
 
   product5:
     label: 'AniOne Coussin à câlins Pepe&Kitty'
-    description: 'Le coussin à calins AniOne issu de la collection Pepe&Kitty peut être rempli d’herbe à chat ou de valériane pour un effet stimulant et récompensant.
-Le coussin à câlins est proposé dans deux jolis designs, sous forme d’étoile ou de nuage. 
-
-Dimensions : 14x9xm (nuage) & 13x13 (étoile)
-
-Information importante :
-Jouet pour animaux !
-Veuillez surveiller votre animal lors de l'utilisation.
-Malgré sa haute qualité - aucun article n'est indestructible.
-Les jouets trop petits peuvent être facilement avalés.
-Veuillez choisir l'article en fonction de la taille de la gueule de l’animal.' 
+    description: "Le coussin à calins AniOne issu de la collection Pepe&Kitty peut être rempli d’herbe à chat ou de valériane pour un effet stimulant et récompensant. Le coussin à câlins est proposé dans deux jolis designs, sous forme d’étoile ou de nuage. Dimensions : 14x9xm (nuage) & 13x13 (étoile) Information importante : Jouet pour animaux !" 
     price: '<numberBetween(10,15)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -95,10 +63,7 @@ Veuillez choisir l'article en fonction de la taille de la gueule de l’animal.'
 
   product6:
     label: 'REAL NATURE WILDERNESS Northern Turkey Adult 300 g'
-    description: 'REAL NATURE WILDERNESS s'inspire de l'alimentation de son ancêtre, le chat sauvage, et vous permet de nourrir votre animal en répondant à ses besoins de la manière la plus conforme à l’espèce possible.
-Cette recette REAL NATURE WILDERNESS se compose de 70 % de dinde et de poulet de qualité supérieure, de 30 % de fruits et légumes, de précieux ingrédients et de 0 % de céréales ajoutées. Elle contient entre autres de la viande fraîche de dinde et du foie de poulet frais comme source de protéines animale à haute valeur nutritive, de pommes de terre comme source de glucides et de l’huile de tournesol de première qualité.
-
-Real Nature WILDERNESS est naturel*, c'est-à-dire sans ajout de conservateurs, colorants ni arômes artificiels.' 
+    description: "REAL NATURE WILDERNESS s'inspire de l'alimentation de son ancêtre, le chat sauvage, et vous permet de nourrir votre animal en répondant à ses besoins de la manière la plus conforme à l’espèce possible. Cette recette REAL NATURE WILDERNESS se compose de 70 % de dinde et de poulet de qualité supérieure, de 30 % de fruits et légumes, de précieux ingrédients et de 0 % de céréales ajoutées. Elle contient entre autres de la viande fraîche de dinde et du foie de poulet frais comme source de protéines animale à haute valeur nutritive, de pommes de terre comme source de glucides et de l’huile de tournesol de première qualité. Real Nature WILDERNESS est naturel*, c'est-à-dire sans ajout de conservateurs, colorants ni arômes artificiels." 
     price: '<numberBetween(10,40)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -107,13 +72,8 @@ Real Nature WILDERNESS est naturel*, c'est-à-dire sans ajout de conservateurs, 
     categories: '[@category1, @category4]' 
 
   product7:
-    label: 'REAL NATURE WILDERNESS Ranger's Forest Adult 300 g'
-    description: 'REAL NATURE WILDERNESS Adult Ranger's Forest au bœuf est un aliment complet pour les chats adultes à partir de 13 mois.
-REAL NATURE WILDERNESS s'inspire de l'alimentation de son ancêtre, le chat sauvage, et vous permet de nourrir votre animal en répondant à ses besoins de la manière la plus conforme à l’espèce possible.
-
-Cette formule se compose à 70 % de sanglier, de lapin, de cerf et de canard de qualité supérieure, à 30 % de fruits, de légumes et de précieux ingrédients, et de 0 % de céréales ajoutées. Elle contient entre autres de la viande fraîche de canard et de sanglier comme sources de protéines animales de haute qualité, des pommes de terre comme source de glucides et de l’huile de lin de première qualité.
-
-Real Nature WILDERNESS est naturel*, c'est-à-dire sans ajout de conservateurs, colorants ni arômes artificiels.' 
+    label: "REAL NATURE WILDERNESS Ranger's Forest Adult 300 g"
+    description: "REAL NATURE WILDERNESS Adult Ranger's Forest au bœuf est un aliment complet pour les chats adultes à partir de 13 mois. REAL NATURE WILDERNESS s'inspire de l'alimentation de son ancêtre, le chat sauvage, et vous permet de nourrir votre animal en répondant à ses besoins de la manière la plus conforme à l’espèce possible. Cette formule se compose à 70 % de sanglier, de lapin, de cerf et de canard de qualité supérieure, à 30 % de fruits, de légumes et de précieux ingrédients, et de 0 % de céréales ajoutées. Elle contient entre autres de la viande fraîche de canard et de sanglier comme sources de protéines animales de haute qualité, des pommes de terre comme source de glucides et de l’huile de lin de première qualité. Real Nature WILDERNESS est naturel*, c'est-à-dire sans ajout de conservateurs, colorants ni arômes artificiels." 
     price: '<numberBetween(10,40)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -123,10 +83,7 @@ Real Nature WILDERNESS est naturel*, c'est-à-dire sans ajout de conservateurs, 
 
   product8:
     label: 'FIT+FUN Couverture Stars M'
-    description: 'Cette couverture douillette au design tendance offre à votre petit compagnon un espace de couchage optimal pour se blottir et se reposer.
-La couverture en polaire FIT+FUN est polyvalente - pratique en voiture, en déplacement ou à la maison. Votre compagnon peut s’y blottir confortablement. Au fond du restaurant ou du parc ou dans la couchette, la couverture offre à votre petit compagnon un petit coin douillet et chaud pour dormir, se reposer ou jouer. De plus, la couverture souple protège votre canapé, votre fauteuil ou le siège arrière de votre voiture des poils et des salissures. La couverture en polaire est donc un accessoire pratique à prix avantageux pour rendre le quotidien plus confortable pour vous et votre quadrupède. 
-
-En cas d’impuretés, la couverture se lave à 30°C en machine.  ' 
+    description: "Cette couverture douillette au design tendance offre à votre petit compagnon un espace de couchage optimal pour se blottir et se reposer. La couverture en polaire FIT+FUN est polyvalente - pratique en voiture, en déplacement ou à la maison. Votre compagnon peut s’y blottir confortablement. Au fond du restaurant ou du parc ou dans la couchette, la couverture offre à votre petit compagnon un petit coin douillet et chaud pour dormir, se reposer ou jouer. De plus, la couverture souple protège votre canapé, votre fauteuil ou le siège arrière de votre voiture des poils et des salissures. La couverture en polaire est donc un accessoire pratique à prix avantageux pour rendre le quotidien plus confortable pour vous et votre quadrupède. En cas d’impuretés, la couverture se lave à 30°C en machine." 
     price: '<numberBetween(10,20)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -136,8 +93,7 @@ En cas d’impuretés, la couverture se lave à 30°C en machine.  '
 
   product9:
     label: 'FIT+FUN Couchette Colours L'
-    description: 'La couchette Colours de FIT + FUN est une couchette colorée au design moderne.
-Cette couchette particulièrement douce invite votre chéri à se détendre et à rêver et offre un confort de couchage moelleux.' 
+    description: "La couchette Colours de FIT + FUN est une couchette colorée au design moderne. Cette couchette particulièrement douce invite votre chéri à se détendre et à rêver et offre un confort de couchage moelleux." 
     price: '<numberBetween(10,40)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -147,12 +103,7 @@ Cette couchette particulièrement douce invite votre chéri à se détendre et �
 
   product10:
     label: 'AniOne Kit de gamelles en acier inoxydable avec supports'
-    description: 'Le jeu de gamelles se compose d’un support en métal pratique et de 2 gamelles en acier inoxydable.
-Il est possible de remplir la gamelle avec deux aliments différents ou de l’eau et un aliment. 
-
-Les gamelles en acier inoxydable se retirent facilement du support pour être remplies ou nettoyées. Elles se lavent au lave-vaisselle
-
-Les pieds en caoutchouc fixés au support métallique garantissent la stabilité des gamelles. ' 
+    description: "Le jeu de gamelles se compose d’un support en métal pratique et de 2 gamelles en acier inoxydable. Il est possible de remplir la gamelle avec deux aliments différents ou de l’eau et un aliment. Les gamelles en acier inoxydable se retirent facilement du support pour être remplies ou nettoyées. Elles se lavent au lave-vaisselle. Les pieds en caoutchouc fixés au support métallique garantissent la stabilité des gamelles." 
     price: '<numberBetween(10,45)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -162,10 +113,7 @@ Les pieds en caoutchouc fixés au support métallique garantissent la stabilité
 
   product11:
     label: 'AniOne Bol en céramique pattes'
-    description: 'Adorable bol en céramique avec pattes imprimées.
-Ce bac en céramique peut être aussi bien utilisé pour l’eau que pour la nourriture. Son design sobre se fond parfaitement dans votre style d'intérieur. 
-
-Le bol céramique AniOne au design Vichy Karo avec traces de pattes peut être lavé au lave-vaisselle. ' 
+    description: "Adorable bol en céramique avec pattes imprimées. Ce bac en céramique peut être aussi bien utilisé pour l’eau que pour la nourriture. Son design sobre se fond parfaitement dans votre style d'intérieur. Le bol céramique AniOne au design Vichy Karo avec traces de pattes peut être lavé au lave-vaisselle." 
     price: '<numberBetween(10,25)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -175,8 +123,7 @@ Le bol céramique AniOne au design Vichy Karo avec traces de pattes peut être l
 
   product12:
     label: 'FIT+FUN Balle munie couinante'
-    description: 'Balle pour chien classique pour un grand plaisir de jeu.
-La balle FIT+FUN convient parfaitement aux jeux de communication avec votre animal. Le jouet couinant incite en outre au jeu. En raison de sa taille plutôt petite, la balle convient aussi pour les petits chiens (taille XS-S). La balle FIT+FUN est issue de caoutchouc naturel pour les dents et convient aux chiens à la gueule un peu sensible.' 
+    description: "Balle pour chien classique pour un grand plaisir de jeu. La balle FIT+FUN convient parfaitement aux jeux de communication avec votre animal. Le jouet couinant incite en outre au jeu. En raison de sa taille plutôt petite, la balle convient aussi pour les petits chiens (taille XS-S). La balle FIT+FUN est issue de caoutchouc naturel pour les dents et convient aux chiens à la gueule un peu sensible." 
     price: '<numberBetween(10,20)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -186,17 +133,7 @@ La balle FIT+FUN convient parfaitement aux jeux de communication avec votre anim
 
   product13:
     label: 'FIT+FUN Corde en coton'
-    description: 'La corde en coton FIT+FUN offre à votre quadrupède toutes sortes de jeux
-Ce jouet pour chien robuste pour les dents satisfait le besoin de mastication de votre chien et est idéal pour les jeux de lancer.
-
-Dimensions : env. 26 cm
-
-Information importante :
-Jouet pour animaux !
-Veuillez surveiller votre animal lors de l'utilisation.
-Malgré sa haute qualité - aucun article n'est indestructible.
-Les jouets trop petits peuvent être facilement avalés.
-Veuillez choisir l'article en fonction de la taille de la gueule de l’animal. ' 
+    description: "La corde en coton FIT+FUN offre à votre quadrupède toutes sortes de jeux. Ce jouet pour chien robuste pour les dents satisfait le besoin de mastication de votre chien et est idéal pour les jeux de lancer. Dimensions : env. 26 cm" 
     price: '<numberBetween(10,12)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -206,8 +143,7 @@ Veuillez choisir l'article en fonction de la taille de la gueule de l’animal. 
 
   product14:
     label: 'Orijen Croquettes chien Original Adult 340 g'
-    description: 'ORIJEN Original Adult participe à l’alimentation naturelle des chiens avec des ingrédients frais dans le respect de la qualité alimentaire des poissons et des fermes du Canada.
-ORIJEN Original Adult se compose de grandes quantités de volailles élevées en liberté, de dinde, d’oeufs entiers et de poissons sauvages – tous des ingrédients régionaux livrés quotidiennement. Composé d’une viande nourrissante que Dame Nature a prévue pour l’alimentation saine de son chien, ORIJEN Original Adult favorise le développement optimal des muscles et assure la stabilité du taux de glycémie en réduisant le taux de glucose. Fabriquée à partir des ingrédients les meilleurs et les plus frais du Canada, ORIJEN, marque primée, préserve la santé, la bonne humeur et la vitalité de votre chien.' 
+    description: "ORIJEN Original Adult participe à l’alimentation naturelle des chiens avec des ingrédients frais dans le respect de la qualité alimentaire des poissons et des fermes du Canada.ORIJEN Original Adult se compose de grandes quantités de volailles élevées en liberté, de dinde, d’oeufs entiers et de poissons sauvages – tous des ingrédients régionaux livrés quotidiennement. Composé d’une viande nourrissante que Dame Nature a prévue pour l’alimentation saine de son chien, ORIJEN Original Adult favorise le développement optimal des muscles et assure la stabilité du taux de glycémie en réduisant le taux de glucose. Fabriquée à partir des ingrédients les meilleurs et les plus frais du Canada, ORIJEN, marque primée, préserve la santé, la bonne humeur et la vitalité de votre chien." 
     price: '<numberBetween(30,45)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -217,12 +153,7 @@ ORIJEN Original Adult se compose de grandes quantités de volailles élevées en
 
   product15:
     label: 'Orijen Croquettes chiot Puppy 2 kg'
-    description: 'L’aliment pour chiots Orijen Puppy favorise la croissance saine de votre ami à quatre pattes.
-Orijen offre une nourriture sèche pour chien naturelle. Orijen Puppy est fabriqué dans l’Alberta par une entreprise familiale indépendante avec des ingrédients canadiens frais. Il en résulte une alimentation pour chiots, adaptée à l’alimentation d’origine de votre chiot et chien en croissance. Tous les ingrédients utilisés sont de qualité alimentaire. 
-
-La nourriture sèche contient au moins 80 % de viande – En effet, seule une nourriture à base de viande assure la santé et la vitalité de votre chien.
-
-La composition à faible teneur en glucides et glucose assure une structure musculaire optimale et fournit en même temps suffisamment d’énergie pour vos chiots curieux. ' 
+    description: "L’aliment pour chiots Orijen Puppy favorise la croissance saine de votre ami à quatre pattes. Orijen offre une nourriture sèche pour chien naturelle. Orijen Puppy est fabriqué dans l’Alberta par une entreprise familiale indépendante avec des ingrédients canadiens frais. Il en résulte une alimentation pour chiots, adaptée à l’alimentation d’origine de votre chiot et chien en croissance. Tous les ingrédients utilisés sont de qualité alimentaire. La nourriture sèche contient au moins 80 % de viande – En effet, seule une nourriture à base de viande assure la santé et la vitalité de votre chien. La composition à faible teneur en glucides et glucose assure une structure musculaire optimale et fournit en même temps suffisamment d’énergie pour vos chiots curieux." 
     price: '<numberBetween(25,45)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -232,11 +163,7 @@ La composition à faible teneur en glucides et glucose assure une structure musc
 
   product16:
     label: 'Royal Canin Croquettes chien Club Special Performance adulte CC 15 kg'
-    description: 'Aliment complet sain et très savoureux pour les chiens adultes équilibrés et normalement actifs.
-Adult CC est un aliment complet sain et très savoureux pour les chiens adultes actifs. 
-La recette soigneusement adaptée garantit une appétence et une tolérance excellentes. Les ingrédients équilibrés assurent à votre chien de bénéficier d’une santé optimale.
-La teneur modérée en calories garantit le maintien du poids de forme.
-Aliment complet pour chiens. ' 
+    description: "Aliment complet sain et très savoureux pour les chiens adultes équilibrés et normalement actifs. Adult CC est un aliment complet sain et très savoureux pour les chiens adultes actifs. La recette soigneusement adaptée garantit une appétence et une tolérance excellentes. Les ingrédients équilibrés assurent à votre chien de bénéficier d’une santé optimale. La teneur modérée en calories garantit le maintien du poids de forme. Aliment complet pour chiens." 
     price: '<numberBetween(25,45)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -246,15 +173,7 @@ Aliment complet pour chiens. '
 
   product17:
     label: 'Royal Canin Croquettes chien Maxi Adulte 15 kg'
-    description: 'Royal Canin Maxi Adulte sont des croquettes pour les gros chiens.
-Pourquoi une alimentation spéciale pour les chiens adultes de grande taille ?
-Les besoins nutritionnels des chiens de grande taille diffèrent énormément des besoins des chiens plus petits. C’est pourquoi il est particulièrement important d’assurer une alimentation équilibrée, selon les besoins spécifiques du chien, dépendant de la taille et de l’âge.
-L’aliment pour chien Royal Canin Maxi Adult est spécialement adapté aux besoins de votre chien. Il convient aux chiens de grande taille à partir de 15 mois, de 26 kg à 44 kg, adultes. 
-Royal Canin Maxi Adult contient une formule spéciale qui contribue à la santé intestinale optimale de votre chien. Des protéines de haute qualité et une teneur équilibrée en fibres alimentaires  contribuent à une digestibilité optimale. 
-Les chiens de grande taille doivent être habitués à un régime alimentaire sain, afin de conserver leur poids de forme. Chez les gros chiens, les os et les articulations sont particulièrement sollicités. C’est pourquoi préserver la santé articulaire de votre chien est un facteur important. L’aliment pour chien Royal Canin Maxi Adulte aide votre chien à garder son poids idéal que ses articulations peuvent porter sans problème.
-Avec Royal Canin Maxi Adulte, votre gros chien est parfaitement accompagné par une alimentation complète, équilibrée et haut de gamme. Grâce aux acides gras oméga 3 (EPA et DHA), Royal Canin Maxi Adulte contribue également à favoriser et maintenir une peau saine et soignée pour votre chien. 
-Royal Canin gage de qualité
-Tous les produits Royal Canin sont soumis à un contrôle de qualité complet afin de garantir une qualité optimale de la nourriture et de répondre aux besoins individuels de nutrition et au style de vie de votre chien. En d’autres termes, avec Royal Canin Maxi Adult, vous offrez à votre chien une alimentation de qualité et équilibrée. ' 
+    description: "Royal Canin Maxi Adulte sont des croquettes pour les gros chiens. Pourquoi une alimentation spéciale pour les chiens adultes de grande taille ?Les besoins nutritionnels des chiens de grande taille diffèrent énormément des besoins des chiens plus petits. C’est pourquoi il est particulièrement important d’assurer une alimentation équilibrée, selon les besoins spécifiques du chien, dépendant de la taille et de l’âge. L’aliment pour chien Royal Canin Maxi Adult est spécialement adapté aux besoins de votre chien. Il convient aux chiens de grande taille à partir de 15 mois, de 26 kg à 44 kg, adultes. Royal Canin Maxi Adult contient une formule spéciale qui contribue à la santé intestinale optimale de votre chien. Des protéines de haute qualité et une teneur équilibrée en fibres alimentaires  contribuent à une digestibilité optimale." 
     price: '<numberBetween(25,45)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -263,9 +182,8 @@ Tous les produits Royal Canin sont soumis à un contrôle de qualité complet af
     categories: '[@category0, @category3, @category16]' 
 
   product18:
-    label: 'DeliBest Parma Grande lot d'os de jambon de jeunes porcs 2 x 280 g'
-    description: 'DeliBest Parma Grande lot d'os de jambon au goût aromatique et naturel pour un plaisir unique de mastication longue.
-L'os de jambon 100% naturel, très recherché par les chiens, est une activité de mastication idéale pour le nettoyage des dents et une source naturelle de calcium. Les os de jambon proviennent de jeunes porcs engraissés suisses, de 5 mois pour qu’ils n’aient pas encore des os cassants et durs, ou les os peuvent être mâchés encore mieux que, par exemple, les os de jambon d'Italie/de Parme provenant de porcs dits à salami âgé d’env. 7 à 8 mois et connus pour avoir tendance à se briser. En raison du jeune âge, les os pèsent environ 280 g. Une méthode de séchage douce garantit la conservation des précieux oligo-éléments.' 
+    label: "DeliBest Parma Grande lot d'os de jambon de jeunes porcs 2 x 280 g"
+    description: "DeliBest Parma Grande lot d'os de jambon au goût aromatique et naturel pour un plaisir unique de mastication longue. L'os de jambon 100% naturel, très recherché par les chiens, est une activité de mastication idéale pour le nettoyage des dents et une source naturelle de calcium. Les os de jambon proviennent de jeunes porcs engraissés suisses, de 5 mois pour qu’ils n’aient pas encore des os cassants et durs, ou les os peuvent être mâchés encore mieux que, par exemple, les os de jambon d'Italie/de Parme provenant de porcs dits à salami âgé d’env. 7 à 8 mois et connus pour avoir tendance à se briser. En raison du jeune âge, les os pèsent environ 280 g. Une méthode de séchage douce garantit la conservation des précieux oligo-éléments." 
     price: '<numberBetween(10,20)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -275,9 +193,7 @@ L'os de jambon 100% naturel, très recherché par les chiens, est une activité 
 
   product19:
     label: 'Pedigree Soin dentaire Dentastix Multipack 56 friandises pour les chiens de taille moyenne 56 Pièce'
-    description: 'Si vous souhaitez préserver la santé dentaire de votre chien, donnez-lui tous les jours Denta Stix comme friandise.
-Une hygiène dentaire quotidienne est indispensable, car les dents sont plus qu’un outil destiné à la mastication. Pedigree DentaStix est idéal pour les soins dentaires quotidiens de votre chien.
-Mais ce n’est pas tout : c’est tellement bon que le chien abandonne immédiatement ce qu’il est en train de faire. Denta Stix est en outre totalement digeste et ne laisse pas de restes. ' 
+    description: "Si vous souhaitez préserver la santé dentaire de votre chien, donnez-lui tous les jours Denta Stix comme friandise. Une hygiène dentaire quotidienne est indispensable, car les dents sont plus qu’un outil destiné à la mastication. Pedigree DentaStix est idéal pour les soins dentaires quotidiens de votre chien. Mais ce n’est pas tout : c’est tellement bon que le chien abandonne immédiatement ce qu’il est en train de faire. Denta Stix est en outre totalement digeste et ne laisse pas de restes." 
     price: '<numberBetween(15,20)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -287,11 +203,7 @@ Mais ce n’est pas tout : c’est tellement bon que le chien abandonne immédia
 
   product20:
     label: 'MultiFit Nourriture pour perruches 1 kg'
-    description: 'La nourriture pour perruches MultiFit offre à votre animal une nourriture variée comme dans son habitat naturel.
-Un mélange haute qualité de graines, fruits, légumes, herbes aromatiques, insectes, vitamines
-et minéraux essentiels et plus encore Nourriture MultiFit pour perruches pour une
-alimentation variée et adaptée à l’espèce.
-Grâce au sac refermable votre ami à plumes peut profiter de sa nourriture pendant longtemps.' 
+    description: "La nourriture pour perruches MultiFit offre à votre animal une nourriture variée comme dans son habitat naturel. Un mélange haute qualité de graines, fruits, légumes, herbes aromatiques, insectes, vitamines et minéraux essentiels et plus encore Nourriture MultiFit pour perruches pour une alimentation variée et adaptée à l’espèce. Grâce au sac refermable votre ami à plumes peut profiter de sa nourriture pendant longtemps." 
     price: '<numberBetween(10,20)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -301,8 +213,7 @@ Grâce au sac refermable votre ami à plumes peut profiter de sa nourriture pend
 
   product21:
     label: 'MultiFit Millet en branche rouge, 300 g'
-    description: '100 % naturel C'est un produit purement naturel et un encas très apprécié pour toutes les grandes perruches, les perruches, les canaris et les oiseaux exotiques.
-Plusieurs fois dépoussiéré et sans additifs ou conservateurs artificiels. ' 
+    description: "100 % naturel C'est un produit purement naturel et un encas très apprécié pour toutes les grandes perruches, les perruches, les canaris et les oiseaux exotiques. Plusieurs fois dépoussiéré et sans additifs ou conservateurs artificiels." 
     price: '<numberBetween(15,20)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -312,8 +223,7 @@ Plusieurs fois dépoussiéré et sans additifs ou conservateurs artificiels. '
 
   product22:
     label: 'Interzoo Cage à oiseaux Fiona'
-    description: 'Une magnifique cage confortable et moderne pour petits oiseaux.
-La cage à oiseaux InterZoo Eliza est livrée avec de nombreux accessoires et sert ainsi d’équipement de base pour votre oiseau. L’équipement de base se compose de perchoirs, de bols à nourriture et à eau et propose ainsi l’occasion de jouer et de retirer. Pour un nettoyage facile, un tiroir amovible  a été intégré.' 
+    description: "Une magnifique cage confortable et moderne pour petits oiseaux. La cage à oiseaux InterZoo Eliza est livrée avec de nombreux accessoires et sert ainsi d’équipement de base pour votre oiseau. L’équipement de base se compose de perchoirs, de bols à nourriture et à eau et propose ainsi l’occasion de jouer et de retirer. Pour un nettoyage facile, un tiroir amovible  a été intégré." 
     price: '<numberBetween(50,100)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'
@@ -323,10 +233,7 @@ La cage à oiseaux InterZoo Eliza est livrée avec de nombreux accessoires et se
 
   product23:
     label: 'Interzoo Cage à oiseaux Iza'
-    description: 'Une cage moderne inimitable avec toit rabattable pour encore plus de liberté pour votre animal préféré.
-En plus d’offrir plus de liberté à votre oiseau grâce au toit déployable, la cage à oiseaux InterZoo Iza offre de nombreux autres avantages.
-
-Le tiroir amovible permet un nettoyage facile de la cage. De plus, celle-ci comprend de nombreux accessoires fournissant un équipement de base. ' 
+    description: "Une cage moderne inimitable avec toit rabattable pour encore plus de liberté pour votre animal préféré.En plus d’offrir plus de liberté à votre oiseau grâce au toit déployable, la cage à oiseaux InterZoo Iza offre de nombreux autres avantages. Le tiroir amovible permet un nettoyage facile de la cage. De plus, celle-ci comprend de nombreux accessoires fournissant un équipement de base." 
     price: '<numberBetween(50,100)>'
     stock: '<numberBetween(0,100)>'
     isActif: '1'

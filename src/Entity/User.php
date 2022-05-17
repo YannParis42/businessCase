@@ -8,6 +8,7 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -25,6 +26,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
     itemOperations:['get']
 )]
 #[ORM\Table(name: '`user`')]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -130,11 +132,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Groups(['adressSerialization','commandSerialization','reviewSerializtation','userSerialization'])]
     private $createdAt;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: ResetPassword::class)]
+    private $resetPasswords;
+
     public function __construct()
     {
         $this->reviews = new ArrayCollection();
         $this->commands = new ArrayCollection();
         $this->adresses = new ArrayCollection();
+        $this->resetPasswords = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -355,6 +361,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ResetPassword>
+     */
+    public function getResetPasswords(): Collection
+    {
+        return $this->resetPasswords;
+    }
+
+    public function addResetPassword(ResetPassword $resetPassword): self
+    {
+        if (!$this->resetPasswords->contains($resetPassword)) {
+            $this->resetPasswords[] = $resetPassword;
+            $resetPassword->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResetPassword(ResetPassword $resetPassword): self
+    {
+        if ($this->resetPasswords->removeElement($resetPassword)) {
+            // set the owning side to null (unless already changed)
+            if ($resetPassword->getUser() === $this) {
+                $resetPassword->setUser(null);
+            }
+        }
 
         return $this;
     }
