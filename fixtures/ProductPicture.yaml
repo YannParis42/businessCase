@@ -140,7 +140,7 @@ App\Entity\ProductPicture:
     product: '@product22'       
 
   _productPicture23:
-    path: 'Interzoo2.png'
+    path: 'Interzoo2.jpg'
     libele: 'volière-oiseaux' 
     # relation avec d'autres tables
     product: '@product23'                                      

@@ -31,6 +31,12 @@
                         <li class="nav-item pe-3">
                             <a class="nav-link " href="#">Oiseaux</a>
                         </li>
+
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item pe-3">
+                            <a class="nav-link " href="{{ path('app_admin') }}">Dashboard</a>
+                        </li>
+                        {% endif %}
                     </ul>
 
                     {% if app.user %}

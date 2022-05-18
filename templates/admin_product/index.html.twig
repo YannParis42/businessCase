@@ -1,0 +1,72 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Tout nos produits{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <div class="row">
+        <H2>Produits</H2>
+
+        <button type="button m-2" class="btn btn-outline-success col-2">  <a href="{{path('app_admin_product_add')}}"> Ajouter
+                un
+                produit</a></button>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal{{product.id}}" tabindex="-1"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Êtes vous sûr de vouloir supprimer {{product.label}} ?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                <a href="{{path('app_admin_product_delete', {'id': product.id })}}"
+                                    class="btn btn-primary">Supprimer
+                                    !</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Modal -->
+
+                <tr>
+                    <th scope="row">{{product.id}}</th>
+                    <td>{{product.label}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.stock}}</td>
+                    <td>
+                        <a href="{{path('app_admin_product_modify', {'label': product.label })}}"><i
+                                class="fa-solid fa-pen"></i></a>
+                        <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal{{product.id}}"><i
+                                class="fa-solid fa-trash-can"></i></a>
+                    </td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Modification marque{% endblock %}
+
+{% block body %}
+
+{{ form_start(form) }}
+<button type="submit" class="btn btn-success">Soumettre</button>
+
+{% if brand.imagePath %}
+    <p>image actuelle</p>
+    <img src="{{asset('upload/brandImages/'~brand.imagePath)}}">
+{% endif %}
+
+{{ form_end(form) }}
+
+{% endblock %}

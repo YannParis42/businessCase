@@ -75,11 +75,11 @@ class Product
     #[Groups(['commandSerialization', 'productSerialization','brandSerialization', 'productPictureSerialization','categorySerialization','reviewSerializtation'])]
     private $isActif;
 
-    #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'products')]
+    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'products')]
     #[Groups(['productSerialization'])]
     private $categories;
 
-    #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductPicture::class)]
+    #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductPicture::class, cascade:['persist', 'remove'])]
     #[Groups(['productSerialization'])]
     private $productPictures;
 

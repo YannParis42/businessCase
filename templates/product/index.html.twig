@@ -4,6 +4,24 @@
 
 {% block body %}
 
+<div class="container">
+    <div class="row">
+        {% for product in products %}
+        <div class="col-3 m-2 border border-success">
 
+            <div>
+                {{product.label}}<br>
+                {{product.price}}€<br>
+                {% for picture in product.productPictures %}
+                <div class="w-50"><img src="{{asset('upload/productImages/'~picture.path)}}">
+                    <hr>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}

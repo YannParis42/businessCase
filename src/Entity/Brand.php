@@ -39,11 +39,11 @@ class Brand
     private $label;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Assert\NotBlank(allowNull:FALSE),
-    Assert\Type(
-        type:'string',
-        message:'On attend une chaine de caractère'
-    )]
+    // #[Assert\NotBlank(allowNull:FALSE),
+    // Assert\Type(
+    //     type:'string',
+    //     message:'On attend une chaine de caractère'
+    // )]
     #[Groups(['productSerialization','brandSerialization'])]
     private $imagePath;
 

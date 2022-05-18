@@ -1,0 +1,70 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Toute les marques{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <div class="row">
+        <H2>Marques</H2>
+
+        <button type="button m-2" class="btn btn-outline-success col-2"> <a href="{{path('app_admin_brand_add')}}">
+                Ajouter une marque</a></button>
+
+
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for brand in brands %}
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal{{brand.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Êtes vous sûr de vouloir supprimer {{brand.label}} ?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                <a href="{{path('app_admin_brand_delete', {'id': brand.id })}}"
+                                    class="btn btn-primary">Supprimer
+                                    !</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Modal -->
+
+                <tr>
+                    <th scope="row">{{brand.id}}</th>
+                    <td>{{brand.label}}</td>
+                    <td>
+                        <a href="{{ path('app_admin_brand_modify', {'label': brand.label }) }}"><i
+                                class="fa-solid fa-pen"></i></a>
+                        <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal{{brand.id}}"><i
+                                class="fa-solid fa-trash-can"></i></a>
+                    </td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

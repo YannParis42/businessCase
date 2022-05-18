@@ -1,11 +1,75 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+<div class="d-flex ">
+    <div class="  h-100 d-flex flex-column flex-shrink-0 p-3 bg-light h-100 m-0 p-0" style="width: 200px;">
+        <a href="{{path('app_home')}}"
+            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap" /></svg>
+             <img class="logo" src="{{ asset('build/images/green-logo.png') }}" alt="">
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
 
-{% block body %}
+            <li>
+                <a href="{{path('app_admin_product')}}" class="nav-link link-dark">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#speedometer2" /></svg>
+                    Produits
+                </a>
+            </li>
+            <li>
+                <a href="{{path('app_admin_brand')}}" class="nav-link link-dark">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#table" /></svg>
+                    Marques
+                </a>
+            </li>
+            <li>
+                <a href="{{path('app_admin_category_index')}}" class="nav-link link-dark">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#grid" /></svg>
+                    Catégories
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link link-dark">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#grid" /></svg>
+                    Clients
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link link-dark">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#grid" /></svg>
+                    Commandes
+                </a>
+            </li>
+        </ul>
+        <hr>
+        {# <div class="dropdown">
+          <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>mdo</strong>
+          </a>
+          <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div> #}
+    </div>
+    <div class="w-100">
+        {% block body %}
+        {% endblock %}
+    </div>
+</div>
 
-{% block sidebar%}
-{% include "common/_sidebar.html.twig" %}
-{% endblock %}{% endblock %}
+
+
 
 {% endblock %}

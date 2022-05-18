@@ -38,7 +38,7 @@ class Category
     #[Groups(['productSerialization','categorySerialization'])]
     private $label;
 
-    #[ORM\ManyToMany(targetEntity: Product::class, inversedBy: 'categories')]
+    #[ORM\ManyToMany(targetEntity: Product::class, mappedBy: 'categories')]
     #[Groups(['categorySerialization'])]
     private $products;
 
