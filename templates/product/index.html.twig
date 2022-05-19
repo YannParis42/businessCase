@@ -7,15 +7,18 @@
 <div class="container">
     <div class="row">
         {% for product in products %}
-        <div class="col-3 m-2 border border-success">
+        <div class="col-10 col-lg-3 m-2 border border-success">
 
-            <div>
+            <div >
                 {{product.label}}<br>
                 {{product.price}}€<br>
                 {% for picture in product.productPictures %}
-                <div class="w-50"><img src="{{asset('upload/productImages/'~picture.path)}}">
-                    <hr>
+                <div class="container-image">
+                    <img src="{{asset('upload/productImages/'~picture.path)}}">
                 </div>
+                {% if app.user %}
+                <a href="{{path('app_add_basket', {'id': product.id} )}}" class="btn btn-outline-success">Ajouter au panier</a>
+                {% endif %}
                 {% endfor %}
             </div>
 

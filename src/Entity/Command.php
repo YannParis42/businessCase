@@ -85,15 +85,8 @@ class Command
     #[Groups(['adressSerialization','commandSerialization', 'productSerialization','userSerialization'])]
     private $totalPrice;
 
-    #[ORM\Column(type: 'integer')]
-    #[Assert\NotBlank(allowNull:FALSE),
-    Assert\Positive(
-        message: 'Le numéro de commande doit être positive'
-    ),
-    Assert\Type(
-        type:'integer',
-        message:'Le numéro de commande doit être un nombre'
-    )
+    #[ORM\Column(type: 'string')]
+    #[Assert\NotBlank(allowNull:FALSE)
     ]
     #[Groups(['adressSerialization','commandSerialization', 'productSerialization','userSerialization'])]
     private $numCommand;
@@ -131,7 +124,7 @@ class Command
     private $user;
 
     #[ORM\ManyToOne(targetEntity: Adress::class, inversedBy: 'commands')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     #[Groups(['commandSerialization'])]
     private $adress;
 
@@ -157,12 +150,12 @@ class Command
         return $this;
     }
 
-    public function getNumCommand(): ?int
+    public function getNumCommand(): ?string
     {
         return $this->numCommand;
     }
 
-    public function setNumCommand(int $numCommand): self
+    public function setNumCommand(string $numCommand): self
     {
         $this->numCommand = $numCommand;
 
@@ -203,9 +196,9 @@ class Command
 
     public function addProduct(Product $product): self
     {
-        if (!$this->products->contains($product)) {
+        // if (!$this->products->contains($product)) {
             $this->products[] = $product;
-        }
+        // }
 
         return $this;
     }

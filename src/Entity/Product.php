@@ -278,10 +278,10 @@ class Product
 
     public function addCommand(Command $command): self
     {
-        if (!$this->commands->contains($command)) {
+        // if (!$this->commands->contains($command)) {
             $this->commands[] = $command;
             $command->addProduct($this);
-        }
+        // }
 
         return $this;
     }

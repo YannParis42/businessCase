@@ -24,3 +24,23 @@ h1 {
     width: 60%;
     height: 20%;
 }
+
+.container-image {
+    position: relative;
+    height: 220px;
+
+    
+    > img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+        transition: ease-in-out .15s;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+            transition: ease-in-out .15s;
+        }
+    }
+}
