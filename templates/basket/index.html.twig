@@ -3,29 +3,37 @@
 {% block title %}La Nîmes'alerie!{% endblock %}
 
 {% block body %}
-<h2>Votre panier</h2>
-<p>Numéro de commande: {{panier.numCommand}}</p><br>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Produits</th>
-            <th scope="col">Quantités</th>
-            <th scope="col">Prix</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="m-4 ">
+    <h2 class="greenText">Votre panier</h2>
 
-        {% for product in panier.products %}
-        <tr>
-            <th scope="row"> {{product. label}}</th>
-            <td>{{product.price}}</td>
-            <td>{{product.price}}</td>
-            <td><a href="{{path('app_remove_basket', {'id': product.id})}}" class="btn btn-outline-danger">supprimer</a></td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<p>Total de la commande: {{panier.totalPrice}}€</p>
-<a href="" class="btn btn-outline-success">Paiement</a>
+    <table class="table table-striped border border-success">
+        <thead>
+            <tr>
+                <th scope="col">Produits</th>
+                <th scope="col">Prix</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+    
+            {% for product in panier.products %}
+            <tr>
+                <th scope="row"> {{product. label}}</th>
+                <td>{{product.price}}€</td>
+                <td><a href="{{path('app_remove_basket', {'id': product.id})}}" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="row">Total</th>
+                <td>{{panier | totalProduct }}€</td>
+                <td><a href="" class="btn btn-outline-success"><i class="fa-solid fa-credit-card"></i></a></td>
+            </tr>
+        </tfoot>
+    </table>
+    <p>Numéro de commande: {{panier.numCommand}}</p><br>
+</div>
+
 {% endblock %}

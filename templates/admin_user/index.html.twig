@@ -3,47 +3,47 @@
 {% block title %}User index{% endblock %}
 
 {% block body %}
-    <h2>Index des clients</h2>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Email</th>
-                {# <th>Roles</th> #}
-                {# <th>Password</th> #}
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>BirthDate</th>
-                <th>Gender</th>
-                <th>CreatedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td> #}
-                <td>{{ user.firstName }}</td>
-                <td>{{ user.lastName }}</td>
-                <td>{{ user.birthDate ? user.birthDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ user.gender }}</td>
-                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_admin_user_show', {'id': user.id}) }}"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    {# <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">edit</a> #}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="10">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_admin_user_new') }}">Create new</a>
+    <div class="m-4">
+        <h2 class="greenText">Index des clients</h2>
+        <table class="table table-striped table-success">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Email</th>
+                    {# <th>Roles</th> #}
+                    {# <th>Password</th> #}
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>BirthDate</th>
+                    <th>Gender</th>
+                    <th>CreatedAt</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.email }}</td>
+                    {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                    <td>{{ user.password }}</td> #}
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.birthDate ? user.birthDate|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ user.gender }}</td>
+                    <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>
+                        <a href="{{ path('app_admin_user_show', {'id': user.id}) }}"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        {# <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">edit</a> #}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {# <a href="{{ path('app_admin_user_new') }}">Create new</a> #}
+    </div>
 {% endblock %}

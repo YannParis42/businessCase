@@ -9,7 +9,7 @@
 
 {% if brand.imagePath %}
     <p>image actuelle</p>
-    <img src="{{asset('upload/brandImages/'~brand.imagePath)}}">
+    <img class="container-image border" src="{{asset('upload/brandImages/'~brand.imagePath)}}">
 {% endif %}
 
 {{ form_end(form) }}

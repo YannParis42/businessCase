@@ -20,9 +20,14 @@ h1 {
     color: $green;
 }
 
+.whiteText{
+    color: white;
+}
+
 .logo{
-    width: 60%;
-    height: 20%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .container-image {

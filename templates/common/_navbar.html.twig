@@ -22,19 +22,28 @@
                         <li class="nav-item pe-3">
                             <a class="nav-link " href="{{ path('app_product') }}">Catalogue</a>
                         </li>
+
+
+                        {% set categories = getParentCategory()  %}
+                        {% for category in categories %}
                         <li class="nav-item pe-3">
-                            <a class="nav-link " href="#">Chiens</a>
+                            <a class="nav-link " href="{{ path('app_product_category', {'id': category.id})}}">{{category.label}}</a>
+                        </li>
+                        {% endfor %}
+
+                        {# <li class="nav-item pe-3">
+                            <a class="nav-link " href="{{ path('app_product')}}">Chiens</a>
                         </li>
                         <li class="nav-item pe-3">
-                            <a class="nav-link " href="#">Chats</a>
+                            <a class="nav-link " href="{{ path('app_product')}}">Chats</a>
                         </li>
                         <li class="nav-item pe-3">
-                            <a class="nav-link " href="#">Oiseaux</a>
-                        </li>
+                            <a class="nav-link " href="{{ path('app_product')}}">Oiseaux</a>
+                        </li> #}
 
                         {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item pe-3">
-                            <a class="nav-link " href="{{ path('app_admin') }}">Dashboard</a>
+                            <a class="nav-link " href="{{ path('app_command_index') }}">Dashboard</a>
                         </li>
                         {% endif %}
                     </ul>

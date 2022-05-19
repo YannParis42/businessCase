@@ -1,54 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-<div class="d-flex ">
-    <div class="  h-100 d-flex flex-column flex-shrink-0 p-3 bg-light h-100 m-0 p-0" style="width: 200px;">
-        <a href="{{path('app_home')}}"
-            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32">
-                <use xlink:href="#bootstrap" /></svg>
-             <img class="logo" src="{{ asset('build/images/green-logo.png') }}" alt="">
-        </a>
-        <hr>
+<div class="d-flex container-fluid m-0 p-0">
+    <div class="row flex-nowrap green d-flex flex-column flex-shrink-0  m-0 p-0" style="width: 200px">
+        <div class="image-container">
+            <a href="{{path('app_home')}}"
+                class="d-flex align-items-center justify-content-center">
+                 <img class="logo"  src="{{ asset('build/images/green-logo.png') }}" alt="">
+            </a>
+        </div>
         <ul class="nav nav-pills flex-column mb-auto">
 
             <li>
-                <a href="{{path('app_admin_product')}}" class="nav-link link-dark">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#speedometer2" /></svg>
-                    Produits
-                </a>
+                <a href="{{path('app_admin_product')}}" class="nav-link link-light "><strong>Produits</strong></a>
             </li>
             <li>
-                <a href="{{path('app_admin_brand')}}" class="nav-link link-dark">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#table" /></svg>
-                    Marques
-                </a>
+                <a href="{{path('app_admin_brand')}}" class="nav-link link-light"><strong>Marques</strong></a>
             </li>
             <li>
-                <a href="{{path('app_admin_category_index')}}" class="nav-link link-dark">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#grid" /></svg>
-                    Catégories
-                </a>
+                <a href="{{path('app_admin_category_index')}}" class="nav-link link-light"><strong>Catégories</strong></a>
             </li>
             <li>
-                <a href="{{path('app_admin_user_index')}}" class="nav-link link-dark">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#grid" /></svg>
-                    Clients
-                </a>
+                <a href="{{path('app_admin_user_index')}}" class="nav-link link-light"><strong>Clients</strong></a>
             </li>
             <li>
-                <a href="{{path('app_command_index')}}" class="nav-link link-dark">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#grid" /></svg>
-                    Commandes
-                </a>
+                <a href="{{path('app_command_index')}}" class="nav-link link-light"><strong>Commandes</strong></a>
             </li>
         </ul>
-        <hr>
         {# <div class="dropdown">
           <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">

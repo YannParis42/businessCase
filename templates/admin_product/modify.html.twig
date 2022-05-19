@@ -10,7 +10,7 @@
 {% if product.productPictures %}
     {% for picture in product.productPictures %}
     <p>image actuelle</p>
-        <img src="{{asset('upload/productImages/'~picture.path)}}">
+        <img class="container-image" src="{{asset('upload/productImages/'~picture.path)}}">
     {% endfor %}   
 {% endif %}
 

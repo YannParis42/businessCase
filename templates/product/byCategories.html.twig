@@ -1,0 +1,44 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Tout nos produits{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row justify-content-between">
+
+       
+
+            {% for category in categoryParent.categories %}
+                {% if category.products | length >0 %}
+                    <H3 class="greenText">{{category.label}}</H3>
+                   
+                    {% for product in category.products %}
+                    <div class="col-10 col-lg-3 m-2 border border-success">
+                        <div>
+                            {{product.label}}<br>
+                            {{product.price}}€<br>
+                            {% for picture in product.productPictures %}
+                                <div class="container-image">
+                                    <img src="{{asset('upload/productImages/'~picture.path)}}">
+                                </div>
+                                    {% if app.user %}
+                                    <a href="{{path('app_add_basket', {'id': product.id} )}}" class="btn btn-outline-success">Ajouter au panier</a>
+                                    {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                {% endif %}
+            {% endfor %}
+
+        
+    </div>
+
+{% endblock %}
+
+
+
+  
+
