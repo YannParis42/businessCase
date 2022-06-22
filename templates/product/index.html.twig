@@ -5,21 +5,25 @@
 {% block body %}
 
 <div class="container">
-    <div class="row justify-content-between">
+    <div class="row justify-content-center">
         {% for product in products %}
-        <div class="col-10 col-lg-3 m-2 border border-success">
+        <div class="col-10 col-lg-3 my-1 me-2 p-2 border border-success">
 
             <div >
-                {{product.label}}<br>
+                {{product.label |slice(0, 30)}}...<br>
                 {{product.price}}€<br>
                 {% for picture in product.productPictures %}
-                <div class="container-image">
+                <div class="container-image mb-2">
                     <img src="{{asset('upload/productImages/'~picture.path)}}">
                 </div>
+                {% endfor %}
+
+                <a href="{{path('productDetail', {'id': product.id} )}}" class="btn btn-outline-success">Voir détail</a>
+               
                 {% if app.user %}
                 <a href="{{path('app_add_basket', {'id': product.id} )}}" class="btn btn-outline-success">Ajouter au panier</a>
                 {% endif %}
-                {% endfor %}
+
             </div>
 
         </div>

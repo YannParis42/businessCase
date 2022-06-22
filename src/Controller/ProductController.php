@@ -34,7 +34,22 @@ class ProductController extends AbstractController
             'categoryParent' => $categoryParent
         ]);
     }
+
+    #[Route('/productDetail/{id}', name: 'productDetail')]
+    public function findOne($id): Response
+    {
+        // $similarProducts = ($this->productRepository->getSimilarProduct($gameEntity));
+        $product = $this->productRepository->find($id);
+        dump($product);        
+
+        return $this->render('product/productDetail.html.twig', [
+            'product'=>$product,
+            // 'similar'=> $similarProducts,
+        ]);
+    }
 }
+
+
 
 // #[Route('/genre/{slug}', name:'app_game_by_genre')]
 // public function showByGenre($slug): Response

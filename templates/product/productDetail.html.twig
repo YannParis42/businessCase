@@ -1,0 +1,59 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Produit{% endblock %}
+
+{% block body %}
+<div class="mt-4">
+    {# card du produit #}
+    <div class="card mx-auto mt-4 mb-4 col-12 border-2 container rounded ">
+
+        <div class="row">
+            <div class="col-4 m-0">
+                {% for picture in product.productPictures %}
+                <div class="container-image-single mt-4">
+                    <img src="{{asset('upload/productImages/'~picture.path)}}">
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-8 view m-0">
+                <div class="card-body">
+                    <h2 class="card-title">{{ product.label }}</h2>
+                    {% if product.brand %}
+                    <a class="card-text"
+                        href='#'>{{ product.brand.label }}</a>
+                    {% endif %}
+                    <h3 class="card-text">{{ product.price }}€</h3>
+                    <hr>
+                    <p class="card-text">{{ product.description | raw }}</p>
+                    <hr>
+                    <div class="d-flex">
+                        {% for category in product.categories %}
+                        <span class="badge rounded-pill bg-success me-2">{{ category.label }}</span>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        {% if app.user %}
+                        <hr>
+                        <a href="{{path('app_add_basket', {'id': product.id} )}}" class="btn btn-outline-success">Ajouter au panier</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{# produits similaires #}
+{# <div class="container">
+    <div class="d-flex justify-content-between align-items-center my-4">
+        <h1 class="mb-1">Produits similaires</h1>
+    </div>
+    <div class="row">
+        {% for product in similar|slice(0, 4) %}
+        
+        {% endfor %}
+    </div>
+</div> #}
+
+{% endblock %}
