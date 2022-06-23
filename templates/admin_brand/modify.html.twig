@@ -4,14 +4,18 @@
 
 {% block body %}
 
-{{ form_start(form) }}
-<button type="submit" class="btn btn-success">Soumettre</button>
-
-{% if brand.imagePath %}
-    <p>image actuelle</p>
-    <img class="container-image border" src="{{asset('upload/brandImages/'~brand.imagePath)}}">
-{% endif %}
-
-{{ form_end(form) }}
-
+<div class="container m-4">
+    <div class="col-8">
+        {{ form_start(form) }}
+        <H2 class="greenText mb-4 p-0">Modifier marque</H2>
+        {{form_row(form.label)}}
+        {{form_row(form.imagePath)}}
+        {% if brand.imagePath %}
+        <p class="greenText">image actuelle:</p>
+        <img class="container-image border" src="{{asset('upload/brandImages/'~brand.imagePath)}}"><br>
+        {% endif %}
+        <button type="submit" class="btn btn-success mt-4">Soumettre</button>
+        {{ form_end(form) }}
+    </div>
+</div>
 {% endblock %}

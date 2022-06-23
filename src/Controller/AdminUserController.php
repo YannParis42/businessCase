@@ -39,6 +39,14 @@ class AdminUserController extends AbstractController
         ]);
     }
 
+    #[Route('/{id}', name: 'app_detail', methods: ['GET'])]
+    public function user(User $user): Response
+    {
+        return $this->render('registration/detail.html.twig', [
+            'user' => $user,
+        ]);
+    }
+
     #[Route('/{id}', name: 'app_admin_user_show', methods: ['GET'])]
     public function show(User $user): Response
     {
@@ -73,4 +81,6 @@ class AdminUserController extends AbstractController
 
         return $this->redirectToRoute('app_admin_user_index', [], Response::HTTP_SEE_OTHER);
     }
+
+   
 }

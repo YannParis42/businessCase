@@ -7,12 +7,12 @@
 
 <div class="container">
     <div class="row m-4">
-        <H2 class="greenText">Index des marques</H2>
+        <H2 class="greenText mb-4 p-0">Index des marques</H2>
 
-        <button type="button m-2" class="btn btn-outline-success col-2"> <a href="{{path('app_admin_brand_add')}}">
-            <i class="fa-solid fa-plus"></i></a></button>
+        <button type="button mb-4" class="btn btn-outline-success col-2"> <a href="{{path('app_admin_brand_add')}}">
+            Nouvelle marque</a></button>
 
-        <table class="table table-striped table-success">
+        <table class="table table-striped table-success mt-4 col-8">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
@@ -37,9 +37,9 @@
                                 Êtes vous sûr de vouloir supprimer {{brand.label}} ?
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Non</button>
                                 <a href="{{path('app_admin_brand_delete', {'id': brand.id })}}"
-                                    class="btn btn-primary">Supprimer
+                                    class="btn btn-danger">Supprimer
                                     !</a>
                             </div>
                         </div>

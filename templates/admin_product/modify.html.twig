@@ -4,16 +4,28 @@
 
 {% block body %}
 
-{{ form_start(form) }}
-<button type="submit" class="btn btn-success">Soumettre</button>
+<div class="container m-4">
+    <div class="col-8">
+        <H2 class="greenText mb-4 p-0">Modifier un produit</H2>
+        {{ form_start(form) }}
+        {{ form_row(form.label) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.price) }}
+        {{ form_row(form.stock) }}
+        {% if product.productPictures %}
+        {% for picture in product.productPictures %}
+        <p>image actuelle</p>
+            <img class="container-image" src="{{asset('upload/productImages/'~picture.path)}}">
+        {% endfor %}
+    {% endif %}
+        {{ form_row(form.image) }}
+        {{ form_row(form.isActif) }}
+        {{ form_row(form.categories) }}
+        {{ form_row(form.brand) }}
 
-{% if product.productPictures %}
-    {% for picture in product.productPictures %}
-    <p>image actuelle</p>
-        <img class="container-image" src="{{asset('upload/productImages/'~picture.path)}}">
-    {% endfor %}   
-{% endif %}
-
-{{ form_end(form) }}
+        <button type="submit" class="btn btn-success">Soumettre</button>
+        {{ form_end(form) }}
+    </div>
+</div>
 
 {% endblock %}

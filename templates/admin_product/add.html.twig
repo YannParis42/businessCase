@@ -4,8 +4,22 @@
 
 {% block body %}
 
-{{ form_start(form) }}
-<button type="submit" class="btn btn-success">Soumettre</button>
-{{ form_end(form) }}
+<div class="container m-4">
+    <div class="col-8">
+        <H2 class="greenText mb-4 p-0">Ajouter un produit</H2>
+
+        {{ form_start(form) }}
+        {{ form_row(form.label) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.price) }}
+        {{ form_row(form.stock) }}
+        {{ form_row(form.image) }}
+        {{ form_row(form.isActif) }}
+        {{ form_row(form.categories) }}
+        {{ form_row(form.brand) }}
+        <button type="submit" class="btn btn-success mt-4">Soumettre</button>
+        {{ form_end(form) }}
+    </div>
+</div>
 
 {% endblock %}

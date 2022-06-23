@@ -36,7 +36,7 @@ class ProductType extends AbstractType
             ->add('price',IntegerType::class, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'price'
+                    'placeholder' => 'Prix'
                 ]
             ])
             ->add('stock',IntegerType::class, [

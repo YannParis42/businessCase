@@ -18,11 +18,8 @@
             <div class="col-8 view m-0">
                 <div class="card-body">
                     <h2 class="card-title">{{ product.label }}</h2>
-                    {% if product.brand %}
-                    <a class="card-text"
-                        href='#'>{{ product.brand.label }}</a>
-                    {% endif %}
-                    <h3 class="card-text">{{ product.price }}€</h3>
+                    <p>{{ product.brand.label }}</p>
+                    <h3 class="price">{{ product.price }}€</h3>
                     <hr>
                     <p class="card-text">{{ product.description | raw }}</p>
                     <hr>
@@ -34,7 +31,7 @@
                     <div>
                         {% if app.user %}
                         <hr>
-                        <a href="{{path('app_add_basket', {'id': product.id} )}}" class="btn btn-outline-success">Ajouter au panier</a>
+                        <a href="{{path('app_add_basket', {'id': product.id} )}}" class="btn btn-outline-success"><i class="fa-solid fa-basket-shopping"></i></a>
                         {% endif %}
                     </div>
                 </div>

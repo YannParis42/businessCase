@@ -7,13 +7,13 @@
 
 <div class="container">
     <div class="row m-4">
-        <H2 class="greenText">Index des produits</H2>
+        <H2 class="greenText mb-4 p-0">Index des produits</H2>
 
-        <button type="button m-2" class="btn btn-outline-success col-2">  <a href="{{path('app_admin_product_add')}}"> Ajouter
+        <button type="button mb-4" class="btn btn-outline-success col-2">  <a href="{{path('app_admin_product_add')}}"> Ajouter
                 un
                 produit</a></button>
 
-        <table class="table table-striped table-success">
+        <table class="table table-striped table-success mt-4 col-8">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
@@ -40,10 +40,9 @@
                                 Êtes vous sûr de vouloir supprimer {{product.label}} ?
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Non</button>
                                 <a href="{{path('app_admin_product_delete', {'id': product.id })}}"
-                                    class="btn btn-primary">Supprimer
-                                    !</a>
+                                    class="btn btn-danger">Supprimer</a>
                             </div>
                         </div>
                     </div>

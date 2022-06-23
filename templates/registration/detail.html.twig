@@ -1,4 +1,4 @@
-{% extends 'base-admin.html.twig' %}
+{% extends 'base-front.html.twig' %}
 
 {% block title %}User{% endblock %}
 
@@ -16,14 +16,7 @@
                         <th class="greenText">Email</th>
                         <td>{{ user.email }}</td>
                     </tr>
-                    {# <tr>
-                        <th>Roles</th>
-                        <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                    </tr>
-                    <tr>
-                        <th>Password</th>
-                        <td>{{ user.password }}</td>
-                    </tr> #}
+
                     <tr>
                         <th class="greenText">FirstName</th>
                         <td>{{ user.firstName }}</td>

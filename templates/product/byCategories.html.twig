@@ -1,6 +1,6 @@
 {% extends 'base-front.html.twig' %}
 
-{% block title %}Tout nos produits{% endblock %}
+{% block title %}Tous nos produits{% endblock %}
 
 {% block body %}
 
@@ -12,18 +12,17 @@
             
             {% for product in category.products %}
                 <div class="col-10 col-lg-3 my-1 me-2 p-2 border border-success">
-                        {{product.label |slice(0, 30)}}...<br>
-                        {{product.price}}€<br>
                         {% for picture in product.productPictures %}
                             <div class="container-image mb-2">
                                 <img src="{{asset('upload/productImages/'~picture.path)}}">
                             </div>
                         {% endfor %}
-
-                        <a href="{{path('productDetail', {'id': product.id} )}}" class="btn btn-outline-success">Voir détail</a>
+                        {{product.label |slice(0, 30)}}...<br>
+                        <p class="price">{{product.price}}€</p>
+                        <a href="{{path('productDetail', {'id': product.id} )}}" class="btn btn-outline-success"><i class="fa-solid fa-magnifying-glass"></i></a>
                         
                         {% if app.user %}
-                        <a href="{{path('app_add_basket', {'id': product.id} )}}" class="btn btn-outline-success">Ajouter au panier</a>
+                        <a href="{{path('app_add_basket', {'id': product.id} )}}" class="btn btn-outline-success"><i class="fa-solid fa-basket-shopping"></i></a>
                         {% endif %}
                 </div>
             {% endfor %}
