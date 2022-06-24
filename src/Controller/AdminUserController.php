@@ -39,7 +39,7 @@ class AdminUserController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_detail', methods: ['GET'])]
+    #[Route('/detail/{id}', name: 'app_detail', methods: ['GET'])]
     public function user(User $user): Response
     {
         return $this->render('registration/detail.html.twig', [

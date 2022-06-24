@@ -3,6 +3,8 @@
 {% block title %}Command{% endblock %}
 
 {% block body %}
+{% if app.user %} 
+{% if is_granted('ROLE_ADMIN') %}
     <div class="container m-4">
         <div class="col-8">
             <h2 class="greenText">Commandes</h2>
@@ -35,4 +37,14 @@
             {{ include('command/_delete_form.html.twig') }} #}
         </div>
     </div>
+    {% endif %}
+    {% else  %}
+    <div class="container my-4">
+        <div class="text-center" style="height: 100vh;">
+            <h2 >Vous n'avez pas les droits!</h2><br> 
+            <h2><a href="{{path('app_home')}}">ACCUEIL</a></h2>
+        </div>
+    </div>
+    
+    {% endif %}
 {% endblock %}

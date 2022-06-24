@@ -3,6 +3,8 @@
 {% block title %}Command index{% endblock %}
 
 {% block body %}
+{% if app.user %} 
+{% if is_granted('ROLE_ADMIN') %}
     <div class="m-4">
         <h2 class="greenText">Index des commandes</h2>
         <table class="table table-striped table-success mt-4 col-8">
@@ -37,6 +39,15 @@
             </tbody>
         </table>
     </div>
+    {% endif %}
+{% else  %}
+<div class="container my-4">
+    <div class="text-center" style="height: 100vh;">
+        <h2 >Vous n'avez pas les droits!</h2><br> 
+        <h2><a href="{{path('app_home')}}">ACCUEIL</a></h2>
+    </div>
+</div>
 
+{% endif %}
     {# <a href="{{ path('app_command_new') }}">Create new</a> #}
 {% endblock %}

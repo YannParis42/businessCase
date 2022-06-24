@@ -3,6 +3,8 @@
 {% block title %}Index des catégories{% endblock %}
 
 {% block body %}
+{% if app.user %} 
+{% if is_granted('ROLE_ADMIN') %}
     <div class="container m-4">
         <div class="row m-4">
             <h2 class="greenText mb-4 p-0">Index des catégories</h2>
@@ -34,6 +36,15 @@
             </table>
         </div>
     </div>
-
+    {% endif %}
+    {% else  %}
+    <div class="container my-4">
+        <div class="text-center" style="height: 100vh;">
+            <h2 >Vous n'avez pas les droits!</h2><br> 
+            <h2><a href="{{path('app_home')}}">ACCUEIL</a></h2>
+        </div>
+    </div>
+    
+    {% endif %}
     
 {% endblock %}

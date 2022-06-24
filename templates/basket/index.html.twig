@@ -3,6 +3,7 @@
 {% block title %}La Nîmes'alerie!{% endblock %}
 
 {% block body %}
+{% if app.user %}
 <div class="m-4 ">
     <h2 class="greenText">Votre panier</h2>
 
@@ -35,5 +36,12 @@
     </table>
     <p>Numéro de commande: {{panier.numCommand}}</p><br>
 </div>
+{% else  %}
+<div class="container my-4">
+    <div class="text-center" style="height: 100vh;">
+        <h2 >Vous devez vous <a href="{{ path('app_login') }}">connecter!</a></h2>
+    </div>
+</div>
+{% endif %} 
 
 {% endblock %}
