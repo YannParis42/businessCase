@@ -26,8 +26,7 @@ class ConversionCountController extends AbstractController
         $minDate =new DateTime( $min_date_string);
         $maxDate =new DateTime( $max_date_string);
 
-        dump($minDate);
-        dump($maxDate); 
+   
         
         $conversionEntities = $this->conversionCountRepository->findConversionBetweenDates($minDate, $maxDate);
         $successEntities = $this->conversionCountRepository->findVenteBetweenDates($minDate, $maxDate);

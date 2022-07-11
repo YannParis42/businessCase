@@ -45,7 +45,7 @@ h1 {
         width: 100%;
         object-fit: cover;
         border-radius: 20px;
-        transition: ease-in-out .15s;
+        // transition: ease-in-out .15s;
 
 
     }
@@ -59,13 +59,13 @@ h1 {
         width: 100%;
         object-fit: cover;
         border-radius: 20px;
-        transition: ease-in-out .15s;
+        // transition: ease-in-out .15s;
 
-        // &:hover {
-        //     cursor: pointer;
+        &:hover {
+            cursor: pointer;
         //     transform: scale(1.05);
         //     transition: ease-in-out .15s;
-        // }
+        }
     }
 }
 
@@ -90,11 +90,15 @@ a:hover{
 .card:hover {
     cursor: pointer;
     transform: scale(1.05);
-    transition: ease-in-out .15s;
+    // transition: ease-in-out .15s;
 }
 
 .espace{
     color: white;
     background-color: $grey;
     border-radius: 15px;
+}
+
+.sidebar{
+    min-height: 100vh;
 }

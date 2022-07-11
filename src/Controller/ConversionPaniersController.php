@@ -32,8 +32,7 @@ class ConversionPaniersController extends AbstractController
         $minDate =new DateTime( $min_date_string);
         $maxDate =new DateTime( $max_date_string);
 
-        dump($minDate);
-        dump($maxDate); 
+        
 
         $visits = $this->visitRepository->findVisitsBetweenDates($minDate, $maxDate);
         $paniersNumber = $this->convPanierRepository->findCommandBetweenDates($minDate, $maxDate);

@@ -26,11 +26,11 @@ class VisitCountController extends AbstractController
         $minDate =new DateTime( $min_date_string);
         $maxDate =new DateTime( $max_date_string);
 
-        dump($minDate);
-        dump($maxDate); 
+        // dump($minDate);
+        // dump($maxDate); 
         
         $visitEntities = $this->visitRepository->findVisitsBetweenDates($minDate, $maxDate);
-        dump($visitEntities);
+        // dump($visitEntities);
 
         return $this->json(['data'=>count($visitEntities)]);
 

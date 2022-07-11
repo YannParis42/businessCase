@@ -28,11 +28,10 @@ class BasketCountController extends AbstractController
         $minDate =new DateTime( $min_date_string);
         $maxDate =new DateTime( $max_date_string);
 
-        dump($minDate);
-        dump($maxDate); 
+  
         
         $basketEntities = $this->basketRepository->findBasketBetweenDates($minDate, $maxDate);
-        dump($basketEntities);
+    
 
         return $this->json(['data'=>count($basketEntities)]);
     }

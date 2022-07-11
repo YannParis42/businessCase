@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Repository\CommandRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Console\Helper\Dumper;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,17 +28,16 @@ class RecurrenceController extends AbstractController
         $minDate =new DateTime( $min_date_string);
         $maxDate =new DateTime( $max_date_string);
 
-        dump($minDate);
-        dump($maxDate);
+     
 
         $recurence = $this->commandRepository->findRecurrenceNewBetweenDates($minDate, $maxDate);
         $ventes = $this->commandRepository->findVenteBetweenDates($minDate, $maxDate);
-        dump($recurence);
-        dump($ventes);
-
+        $result = 0;
+        if (count($ventes) > 0) {
         $nbCommandesAncien = count($ventes) - count($recurence);
         $result = ($nbCommandesAncien * 100)/ count($ventes);
-        return $this->json(['data'=>$result]);
+        }
+        return new JsonResponse(['data'=>$result]);
 
     }
 }

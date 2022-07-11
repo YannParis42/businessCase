@@ -43,21 +43,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $email;
 
     #[ORM\Column(type: 'json')]
-    #[Groups(['userSerialization'])]
+    // #[Groups(['userSerialization'])]
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
-    // #[Assert\NotBlank(allowNull:FALSE),
-    // Assert\Length(
-    //   min: 5,
-    //   max: 100,
-    //   minMessage: 'Le mot de passe est trop courtv({{ limit }})',
-    //   maxMessage: 'Le mot de passe est trop longv({{ limit }})',
-    // ),
-    // Assert\Type(
-    //   type:'string',
-    //   message:'Le mot de passe doit être une chaine de caractère'
-    // )]
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -159,6 +148,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+  
 
     /**
      * A visual identifier that represents this user.

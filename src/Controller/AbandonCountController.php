@@ -26,9 +26,7 @@ class AbandonCountController extends AbstractController
         $minDate =new DateTime( $min_date_string);
         $maxDate =new DateTime( $max_date_string);
 
-        dump($minDate);
-        dump($maxDate);
-
+       
         $conversionEntities = $this->commandRepository->findConversionBetweenDates($minDate, $maxDate);
         $successEntities = $this->commandRepository->findVenteBetweenDates($minDate, $maxDate);
         $percentage = (count($successEntities) *100) / count($conversionEntities);

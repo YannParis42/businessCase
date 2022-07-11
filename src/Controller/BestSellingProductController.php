@@ -27,7 +27,7 @@ class BestSellingProductController extends AbstractController
         $maxDate =new DateTime( $max_date_string);
 
         $productEntities = $this->productRepository->getTotalProductSoldDesc($minDate, $maxDate);
-        dump($productEntities);
+     
 
         return $this->json(['data'=>$productEntities]);
 
